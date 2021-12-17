@@ -19,6 +19,11 @@ export default function Topbar() {
                 </ul>
             </div>
             <div className="topRight">
+                <img
+                    className="topImg"
+                    src="https://avatars.githubusercontent.com/u/37930821?v=4"
+                    alt=""
+                />
                 <ul className="topList">
                     <li className="topListItem">LOGIN</li>
                     <li className="topListItem">REGISTER</li>

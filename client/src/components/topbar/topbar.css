@@ -12,44 +12,53 @@
 
 .topLeft,
 .topRight {
-  flex: 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    flex: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .topIcon {
-  font-size: 20px;
-  margin-right: 10px;
-  color: #444;
-  cursor: pointer;
+    font-size: 20px;
+    margin-right: 10px;
+    color: #444;
+    cursor: pointer;
 }
 
 .topCenter {
-  flex: 6;
+    flex: 6;
 }
 
 .topList {
-  display: flex;
-  justify-content: center;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
 .topListItem {
-  margin-right: 20px;
-  font-size: 18px;
-  font-weight: 300;
-  cursor: pointer;
+    margin-right: 20px;
+    font-size: 18px;
+    font-weight: 300;
+    cursor: pointer;
 }
 
 .topListItem:hover{
     color: gray;
 }
 
+.topImg {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
 .topSearchIcon {
-  font-size: 18px;
-  color: #666;
-  cursor: pointer;
+    font-size: 18px;
+    color: #666;
+    cursor: pointer;
 }
