@@ -7,7 +7,7 @@ export default function Sidebar() {
             <div className="sidebarItem">
                 <span className="sidebarTitle">ABOUT ME</span>
                 <img
-                    src="https://wallpapercave.com/wp/wp8303538.jpg"
+                    src="https://wallpapercave.com/wp/wp9584059.jpg"
                     alt=""
                 />
                 <p>

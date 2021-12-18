@@ -9,7 +9,7 @@ export default function Header() {
             </div>
             <img
                 className="headerImg"
-                src="https://mocah.org/thumbs/509763-Black-Hole-Sci.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+                src="https://i.pinimg.com/originals/25/dd/05/25dd05996e495781ab23252c936fa734.jpg"
                 alt=""
             />
         </div>
