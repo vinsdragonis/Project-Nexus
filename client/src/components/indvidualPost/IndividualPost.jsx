@@ -6,7 +6,7 @@ export default function IndividualPost() {
             <div className="indPostWrapper">
                 <img
                     className="indPostImg"
-                    src="https://wallpapercave.com/wp/wp7864767.jpg"
+                    src="https://wallpapercave.com/wp/wp9422211.jpg"
                     alt=""
                 />
                 <h1 className="indPostTitle">
