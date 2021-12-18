@@ -1,0 +1,64 @@
+.indPost {
+    flex: 9;
+}
+
+.indPostWrapper {
+    padding: 20px;
+    padding-right: 0;
+}
+
+.indPostImg {
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.indPostTitle {
+    text-align: center;
+    margin: 10px;
+    font-size: 28px;
+    font-family: "Lora", sans-serif;
+}
+
+.indPostEdit {
+    float: right;
+    font-size: 16px;
+}
+
+.indPostIcon {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.indPostIcon:first-child {
+    color: teal;
+}
+.indPostIcon:last-child {
+    color: tomato;
+}
+
+.indPostInfo {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    color: #be9656;
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+}
+
+.indPostAuthor{
+    margin-left: 5px;
+}
+
+.indPostDesc {
+    color: #666;
+    font-size: 18px;
+    line-height: 25px;
+}
+
+.indPostDesc::first-letter {
+    margin-left: 20px;
+    font-size: 30px;
+    font-weight: 600;
+}
