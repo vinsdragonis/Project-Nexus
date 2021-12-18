@@ -2,7 +2,7 @@ import './posts.css';
 
 export default function Posts() {
     return (
-        <div>
+        <div className="posts">
             Posts
         </div>
     )

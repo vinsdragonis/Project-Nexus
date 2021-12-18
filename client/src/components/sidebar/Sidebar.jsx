@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 export default function Sidebar() {
@@ -7,7 +7,7 @@ export default function Sidebar() {
             <div className="sidebarItem">
                 <span className="sidebarTitle">ABOUT ME</span>
                 <img
-                    src="https://media.istockphoto.com/photos/cute-artificial-intelligence-robot-with-headset-picture-id1283257467?b=1&k=20&m=1283257467&s=170667a&w=0&h=5NF5-7_2H4LOfeuKxWnGVdyZkV5uq8qeVxK-tfA7NL8="
+                    src="https://wallpapercave.com/wp/wp8303538.jpg"
                     alt=""
                 />
                 <p>
@@ -19,34 +19,22 @@ export default function Sidebar() {
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Life">
-                            Life
-                        </Link>
+                        Artificial Intelligence
                     </li>
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Music">
-                            Music
-                        </Link>
+                        Cloud Computing
                     </li>
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Sport">
-                            Sport
-                        </Link>
+                        Information Security
                     </li>
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Style">
-                            Style
-                        </Link>
+                        Software Engineering
                     </li>
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Tech">
-                            Tech
-                        </Link>
+                        Smart Devices
                     </li>
                     <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=Cinema">
-                            Cinema
-                        </Link>
+                        Wireless Networks
                     </li>
                 </ul>
             </div>
@@ -55,8 +43,8 @@ export default function Sidebar() {
                 <div className="sidebarSocial">
                     <i className="sidebarIcon fab fa-facebook-square"></i>
                     <i className="sidebarIcon fab fa-instagram-square"></i>
-                    <i className="sidebarIcon fab fa-pinterest-square"></i>
-                    <i className="sidebarIcon fab fa-twitter-square"></i>
+                    <i className="sidebarIcon fab fa-github-square"></i>
+                    <i className="sidebarIcon fab fa-reddit-square"></i>
                 </div>
             </div>
         </div>

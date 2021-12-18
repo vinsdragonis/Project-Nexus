@@ -6,8 +6,10 @@ import './homepage.css';
 export default function Homepage() {
     return (
         <>
+            <Header />
             <div className="home">
-                <Header />
+                <Posts />
+                <Sidebar />
             </div>
         </>
     )
