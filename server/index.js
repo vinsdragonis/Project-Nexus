@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
-// const authRoute = require("./routes/auth");
+const authRoute = require("./routes/auth");
 // const userRoute = require("./routes/users");
 // const postRoute = require("./routes/posts");
 // const categoryRoute = require("./routes/categories");
@@ -26,10 +26,6 @@ mongoose
     .catch((err) => {
         console.log(err + "\nError brrr :(")
     });
-
-app.use('/', (req, res) => {
-    console.log("Reached home url");
-});
 
 app.listen("5000", () => {
   console.log("Backend server is running.");
