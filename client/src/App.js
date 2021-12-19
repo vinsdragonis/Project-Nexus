@@ -13,13 +13,13 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const currentUser = true;
+  const currentUser = false;
   return (
     <Router>
       <Topbar />
       <Routes>
         <Route exact path="/" element={ <Homepage /> } />
-        <Route exact path="/posts" element={ <Homepage /> } />
+        <Route path="/posts" element={ <Homepage /> } />
         <Route path="/post/:id" element={ <Individual /> } />
         <Route path="/write" element={ currentUser ? <Write /> : <Login /> } />
         <Route path="/settings" element={ currentUser ? <Settings /> : <Login /> } />

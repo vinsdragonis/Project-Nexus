@@ -18,9 +18,9 @@ export default function Post() {
             <hr />
             <span className="postDate">1 hour ago</span>
             <p className="postDesc">
-                Robots appeared out of nowhere and massive amounts and have 
-                slaughtered nearly 90% of mankind. Humans brought this upon 
-                themselves by being lazy and relying entirely on machines.
+                Robots appeared out of nowhere in massive amounts and have 
+                slaughtered nearly 90% of the human populace. Mankind brought
+                this upon itself by being lazy and relying entirely on machines.
             </p>
         </div>
     )
