@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './post.css';
 
 export default function Post() {
@@ -10,7 +11,9 @@ export default function Post() {
             />
             <div className="postInfo">
                 <div className="postCats">
-                    <span className="postCat">Artificial Intelligence</span>
+                    <span className="postCat">
+                        Artificial Intelligence
+                    </span>
                     <span className="postCat">Smart Devices</span>
                 </div>
             </div>
