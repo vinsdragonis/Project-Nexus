@@ -12,12 +12,22 @@ export default function Post() {
             <div className="postInfo">
                 <div className="postCats">
                     <span className="postCat">
-                        Artificial Intelligence
+                        <Link className="link"to="/post?cat=AI">
+                            Artificial Intelligence
+                        </Link>
                     </span>
-                    <span className="postCat">Smart Devices</span>
+                    <span className="postCat">
+                        <Link className="link" to="/post?cat=SmartDevices">
+                            Smart Devices
+                        </Link>
+                    </span>
                 </div>
             </div>
-            <span className="postTitle">Robots dominate over mankind!</span>
+            <span className="postTitle">
+                <Link className="link" to="/post/robot_raid">
+                    Robots dominate over mankind!
+                </Link>
+            </span>
             <hr />
             <span className="postDate">1 hour ago</span>
             <p className="postDesc">
