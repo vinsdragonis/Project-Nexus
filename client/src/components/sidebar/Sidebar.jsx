@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 export default function Sidebar() {
@@ -19,22 +19,34 @@ export default function Sidebar() {
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
                     <li className="sidebarListItem">
-                        Artificial Intelligence
+                        <Link className="link" to="/posts?cat=AI">
+                            Artificial Intelligence
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
-                        Cloud Computing
+                        <Link className="link" to="/posts?cat=cloud_computing">
+                            Cloud Computing
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
-                        Information Security
+                        <Link className="link" to="/posts?cat=information_security">
+                            Information Security
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
-                        Software Engineering
+                        <Link className="link" to="/posts?cat=software_engineering">
+                            Software Engineering
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
-                        Smart Devices
+                        <Link className="link" to="/posts?cat=smart_devices">
+                            Smart Devices
+                        </Link>
                     </li>
                     <li className="sidebarListItem">
-                        Wireless Networks
+                        <Link className="link" to="/posts?cat=wireless_networks">
+                            Wireless Networks
+                        </Link>
                     </li>
                 </ul>
             </div>

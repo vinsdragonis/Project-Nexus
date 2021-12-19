@@ -12,12 +12,12 @@ export default function Post() {
             <div className="postInfo">
                 <div className="postCats">
                     <span className="postCat">
-                        <Link className="link"to="/post?cat=AI">
+                        <Link className="link"to="/posts?cat=AI">
                             Artificial Intelligence
                         </Link>
                     </span>
                     <span className="postCat">
-                        <Link className="link" to="/post?cat=SmartDevices">
+                        <Link className="link" to="/posts?cat=smart_devices">
                             Smart Devices
                         </Link>
                     </span>
