@@ -12,19 +12,19 @@ export default function Topbar() {
             </div>
             <div className="topCenter">
                 <ul className="topList">
-                    <Link to="/" style={{ textDecoration:"none", color: "inherit" }}>
+                    <Link className="link" to="/">
                         <li className="topListItem">HOME</li>
                     </Link>
                     <li className="topListItem">ABOUT</li>
                     <li className="topListItem">CONTACT</li>
-                    <Link to="/write" style={{ textDecoration:"none", color: "inherit"  }}>
+                    <Link className="link" to="/write" >
                         <li className="topListItem">WRITE</li>
                     </Link>
                     <li className="topListItem">LOGOUT</li>
                 </ul>
             </div>
             <div className="topRight">
-                <Link to="/settings" style={{ textDecoration:"none", color: "inherit"  }}>
+                <Link className="link" to="/settings">
                     <img
                         className="topImg"
                         src="https://avatars.githubusercontent.com/u/37930821?v=4"
@@ -32,10 +32,10 @@ export default function Topbar() {
                     />
                 </Link>
                 <ul className="topList">
-                    <Link to="/login" style={{ textDecoration:"none", color: "inherit"  }}>
+                    <Link className="link" to="/login">
                         <li className="topListItem">LOGIN</li>
                     </Link>
-                    <Link to="/register" style={{ textDecoration:"none", color: "inherit"  }}>
+                    <Link className="link" to="/register">
                         <li className="topListItem">REGISTER</li>
                     </Link>
                 </ul>
