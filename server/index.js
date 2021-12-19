@@ -27,6 +27,10 @@ mongoose
         console.log(err + "\nError brrr :(")
     });
 
+app.use('/', (req, res) => {
+    console.log("Reached home url");
+});
+
 app.listen("5000", () => {
   console.log("Backend server is running.");
 });
