@@ -14,7 +14,7 @@ app.use(express.json());
 
 mongoose
     .connect(
-        "mongodb+srv://guest:guest12321@cluster0.moo5s.mongodb.net/nexus?retryWrites=true&w=majority",
+        process.env.MONGO_URL,
         {
             useNewUrlParser: true,
             useUnifiedTopology: true
