@@ -1,7 +1,20 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
 
 export default function Sidebar() {
+    
+    const [cats, setCats] = useState([]);
+
+    useEffect(() => {
+        const getCats = async () => {
+            const res = await axios.get("http://localhost:5000/api/categories");
+            setCats(res.data);
+        };
+        getCats();
+    }, []);
+
     return (
         <div className="sidebar">
             <div className="sidebarItem">
@@ -18,40 +31,17 @@ export default function Sidebar() {
             <div className="sidebarItem">
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=AI">
-                            Artificial Intelligence
+                    { cats.map((c) => (
+                        <Link key={ c._id } to={`http://localhost:5000/api/categories/?cat=${c.name}`} className="link">
+                            <li className="sidebarListItem">
+                                { c.name }
+                            </li>
                         </Link>
-                    </li>
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=cloud_computing">
-                            Cloud Computing
-                        </Link>
-                    </li>
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=information_security">
-                            Information Security
-                        </Link>
-                    </li>
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=software_engineering">
-                            Software Engineering
-                        </Link>
-                    </li>
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=smart_devices">
-                            Smart Devices
-                        </Link>
-                    </li>
-                    <li className="sidebarListItem">
-                        <Link className="link" to="/posts?cat=wireless_networks">
-                            Wireless Networks
-                        </Link>
-                    </li>
+                    ))}
                 </ul>
             </div>
             <div className="sidebarItem">
-                <span className="sidebarTitle">FOLLOW US</span>
+                <span className="sidebarTitle">FOLLOW ME</span>
                 <div className="sidebarSocial">
                     <i className="sidebarIcon fab fa-facebook-square"></i>
                     <i className="sidebarIcon fab fa-instagram-square"></i>

@@ -1,16 +1,40 @@
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import './individualPost.css';
 
 export default function IndividualPost() {
+    const location = useLocation()
+    const path =location.pathname.split("/")[2];
+    const PF = "http://localhost:5000/images/";
+    const [post, setPost] = useState({});  
+    // const [title, setTitle] = useState("");
+    // const [desc, setDesc] = useState("");
+    // const [updateMode, setUpdateMode] = useState(false);
+
+    useEffect(() => {
+        const getPost = async () => {
+            const res = await axios.get("http://localhost:5000/api/posts/" + path);
+            setPost(res.data);
+            // setPost(res.data);
+            // setTitle(res.data.title);
+            // setDesc(res.data.desc);
+        };
+        getPost();
+    }, [path])
+
     return (
         <div>
             <div className="indPostWrapper">
-                <img
-                    className="indPostImg"
-                    src="https://wallpapercave.com/wp/wp9422211.jpg"
-                    alt=""
-                />
+                { post.photo &&    
+                    <img
+                        className="indPostImg"
+                        src={ PF + post.photo }
+                        alt=""
+                    />}
                 <h1 className="indPostTitle">
-                    Lorem ipsum dolor
+                    { post.title }
                     <div className="indPostEdit">
                         <i className="indPostIcon far fa-edit"></i>
                         <i className="indPostIcon far fa-trash-alt"></i>
@@ -20,78 +44,15 @@ export default function IndividualPost() {
                     <span>
                         Author:
                         <b className="indPostAuthor">
-                            King Dragonis
+                            <Link className="link" to={`http://localhost:5000/api/?user=${post.username}`}>
+                                { post.username }
+                            </Link>
                         </b>
                     </span>
-                    <span>1 day ago</span>
+                    <span>{ new Date(post.createdAt).toDateString() }</span>
                 </div>
                 <p className="indPostDesc">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-                    quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-                    Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-                    eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-                    impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-                    odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos!
-                    <br />
-                    <br />
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-                    quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-                    Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-                    eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-                    impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-                    odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
-                    a odit modi eos!
-                    <br />
-                    <br />
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-                    quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-                    Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-                    eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-                    impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-                    odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
-                    a odit modi eos!
-                    <br />
-                    <br />
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-                    quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-                    Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-                    eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-                    impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-                    odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
-                    <br />
-                    <br />
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste error
-                    quibusdam ipsa quis quidem doloribus eos, dolore ea iusto impedit!
-                    Voluptatum necessitatibus eum beatae, adipisci voluptas a odit modi
-                    eos! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste
-                    error quibusdam ipsa quis quidem doloribus eos, dolore ea iusto
-                    impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas a
-                    odit modi eos! Lorem, ipsum dolor sit amet consectetur adipisicing
-                    elit. Iste error quibusdam ipsa quis quidem doloribus eos, dolore ea
-                    iusto impedit! Voluptatum necessitatibus eum beatae, adipisci voluptas
-                    a odit modi eos! Lorem, ipsum dolor sit amet consectetur.
+                    { post.desc }
                 </p>
             </div>
         </div>
