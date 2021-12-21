@@ -5,8 +5,8 @@ import { Link } from "react-router-dom";
 import './individualPost.css';
 
 export default function IndividualPost() {
-    const location = useLocation()
-    const path =location.pathname.split("/")[2];
+    const location = useLocation();
+    const path = location.pathname.split("/")[2];
     const PF = "http://localhost:5000/images/";
     const [post, setPost] = useState({});  
     // const [title, setTitle] = useState("");
