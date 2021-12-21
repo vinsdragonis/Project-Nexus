@@ -1,8 +1,16 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import './topbar.css';
-import { Link } from 'react-router-dom';
 
 export default function Topbar() {
-    const user = false;
+    const { user, dispatch } = useContext(Context);
+    const PF = "http://localhost:5000/api/images/"
+
+    const handleLogout = () => {
+        dispatch({ type: "LOGOUT" });
+    };
+
     return (
         <div className="top">
             <div className="topLeft">
@@ -25,7 +33,7 @@ export default function Topbar() {
                     <Link className="link" to="/write" >
                         <li className="topListItem">WRITE</li>
                     </Link>
-                    { user && <li className="topListItem">LOGOUT</li> }
+                    <li className="topListItem" onClick={handleLogout}>{ user && "LOGOUT" }</li>
                 </ul>
             </div>
             <div className="topRight">
@@ -33,7 +41,7 @@ export default function Topbar() {
                     <Link className="link" to="/settings">
                         <img
                             className="topImg"
-                            src="https://wallpapercave.com/wp/wp9584059.jpg"
+                            src={ user.profilePic }
                             alt=""
                         />
                     </Link>

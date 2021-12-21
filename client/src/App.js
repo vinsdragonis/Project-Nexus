@@ -11,9 +11,11 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import { useContext } from "react";
+import { Context } from "./context/Context";
 
 function App() {
-  const currentUser = false;
+  const { user } = useContext(Context);
   return (
     <Router>
       <Topbar />
@@ -21,10 +23,10 @@ function App() {
         <Route exact path="/" element={ <Homepage /> } />
         <Route path="/posts" element={ <Homepage /> } />
         <Route path="/post/:id" element={ <Individual /> } />
-        <Route path="/write" element={ currentUser ? <Write /> : <Login /> } />
-        <Route path="/settings" element={ currentUser ? <Settings /> : <Login /> } />
-        <Route path="/login" element={ currentUser ? <Homepage /> : <Login /> } />
-        <Route path="/register" element={ currentUser ? <Homepage /> : <Register /> } />
+        <Route path="/write" element={ user ? <Write /> : <Login /> } />
+        <Route path="/settings" element={ user ? <Settings /> : <Login /> } />
+        <Route path="/login" element={ user ? <Homepage /> : <Login /> } />
+        <Route path="/register" element={ user ? <Homepage /> : <Register /> } />
       </Routes>
     </Router>
   );
