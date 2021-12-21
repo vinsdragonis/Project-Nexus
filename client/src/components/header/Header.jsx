@@ -9,7 +9,7 @@ export default function Header() {
             </div>
             <img
                 className="headerImg"
-                src="https://wallpapercave.com/wp/wp5209003.jpg"
+                src="https://wallpapercave.com/wp/y7MHn2V.jpg"
                 alt=""
             />
         </div>
