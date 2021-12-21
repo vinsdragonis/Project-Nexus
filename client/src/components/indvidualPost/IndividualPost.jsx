@@ -44,7 +44,7 @@ export default function IndividualPost() {
                     <span>
                         Author:
                         <b className="indPostAuthor">
-                            <Link className="link" to={`http://localhost:5000/api/?user=${post.username}`}>
+                            <Link className="link" to={`/?user=${post.username}`}>
                                 { post.username }
                             </Link>
                         </b>
