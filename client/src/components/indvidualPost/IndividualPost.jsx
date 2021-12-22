@@ -8,7 +8,7 @@ import './individualPost.css';
 export default function IndividualPost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
-    const PF = "http://localhost:5000/images/";
+    const PF = "/images/";
     const { user } = useContext(Context);
     const [post, setPost] = useState({});
     const [title, setTitle] = useState("");
@@ -28,7 +28,7 @@ export default function IndividualPost() {
 
     const handleDelete = async () => {
         try {
-        await axios.delete(`/posts/${post._id}`, {
+        await axios.delete(`http://localhost:5000/api/posts/${post._id}`, {
             data: { username: user.username },
         });
         window.location.replace("/");
@@ -37,12 +37,12 @@ export default function IndividualPost() {
 
     const handleUpdate = async () => {
         try {
-        await axios.put(`/posts/${post._id}`, {
-            username: user.username,
-            title,
-            desc,
-        });
-        setUpdateMode(false)
+            await axios.put(`http://localhost:5000/api/posts/${post._id}`, {
+                username: user.username,
+                title,
+                desc,
+            });
+            setUpdateMode(false)
         } catch (err) {}
     };
 
