@@ -60,7 +60,7 @@ export default function IndividualPost() {
                     <input
                         type="text"
                         value={title}
-                        className="singlePostTitleInput"
+                        className="indPostTitleInput"
                         autoFocus
                         onChange={(e) => setTitle(e.target.value)}
                     />
