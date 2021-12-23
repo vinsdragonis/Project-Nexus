@@ -19,6 +19,7 @@ export default function Settings() {
         dispatch({ type: "UPDATE_START" });
         const updatedUser = {
             userId: user._id,
+            file,
             username,
             email,
             password,
@@ -72,6 +73,15 @@ export default function Settings() {
                             className="settingsPPInput"
                             onChange={ (e) => setFile(e.target.files[0]) }
                         />
+                        {/* <input
+                            id="fileInput"
+                            type="text"
+                            name="fileInput"
+                            placeholder="Profile image URL"
+                            className="fileInput"
+                            autoComplete="off"
+                            onChange={ (e) => setFile(e.target.files[0]) }
+                        /> */}
                     </div>
                     <label>Username</label>
                     <input

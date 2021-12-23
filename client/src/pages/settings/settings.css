@@ -72,6 +72,17 @@
     width: 30%;
 }
 
+.settingsForm > .settingsPP > input {
+    color: gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 50%;
+    height: 30px;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    margin-left: 10px;
+}
+
 .settingsForm > input {
     color: gray;
     margin-top: 10px;
