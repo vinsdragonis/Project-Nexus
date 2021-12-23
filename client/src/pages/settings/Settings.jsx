@@ -36,7 +36,7 @@ export default function Settings() {
         }
 
         try {
-            const res = await axios.put("/users/" + user._id, updatedUser);
+            const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser);
             setSuccess(true);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
         } catch (err) {
@@ -72,7 +72,7 @@ export default function Settings() {
                     <label>Username</label>
                     <input
                         type="text"
-                        placeholder="Dragonis"
+                        placeholder="Tim"
                         name="name"
                         onChange={ (e) => setUsername(e.target.value) }
                     />
