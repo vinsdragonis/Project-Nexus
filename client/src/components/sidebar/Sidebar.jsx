@@ -18,7 +18,7 @@ export default function Sidebar() {
     return (
         <div className="sidebar">
             <div className="sidebarItem">
-                <span className="sidebarTitle">ABOUT ME</span>
+                <span className="sidebarTitle">ABOUT THE AUTHOR</span>
                 <img
                     src="https://avatars.githubusercontent.com/u/37930821?v=4"
                     alt=""

@@ -71,6 +71,7 @@
     color: #666;
     font-size: 18px;
     line-height: 25px;
+    white-space: pre-line;
 }
 
 .indPostDesc::first-letter {

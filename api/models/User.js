@@ -18,7 +18,7 @@ const UserSchema = new mongoose.Schema(
         },
         profilePic: {
             type: String,
-            default: "",
+            default: "https://upload.wikimedia.org/wikipedia/en/archive/b/b1/20210811085633%21Portrait_placeholder.png",
         },
     },
     {
