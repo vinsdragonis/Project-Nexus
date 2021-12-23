@@ -12,7 +12,7 @@ export default function Settings() {
     const [success, setSuccess] = useState(false);
 
     const { user, dispatch } = useContext(Context);
-    const PF = "http://localhost:5000/images/"
+    // const PF = "http://localhost:5000/images/";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -51,11 +51,15 @@ export default function Settings() {
                     <span className="settingsTitleUpdate">Update Your Account</span>
                     <span className="settingsTitleDelete">Delete Account</span>
                 </div>
-                <form className="settingsForm" onSubmit={ handleSubmit }>
+                <form
+                    className="settingsForm"
+                    autoComplete='off'
+                    onSubmit={ handleSubmit }
+                >
                     <label>Profile Picture</label>
                     <div className="settingsPP">
                         <img
-                            src={ file ? URL.createObjectURL(file) : PF+user.profilePic }
+                            src={ file ? URL.createObjectURL(file) : user.profilePic }
                             alt=""
                         />
                         <label htmlFor="fileInput">
@@ -74,12 +78,14 @@ export default function Settings() {
                         type="text"
                         placeholder="Tim"
                         name="name"
+                        autoComplete="off"
                         onChange={ (e) => setUsername(e.target.value) }
                     />
                     <label>Email</label>
                     <input
                         type="email"
                         placeholder="example@domain.com"
+                        autoComplete="off"
                         name="email"
                         onChange={ (e) => setEmail(e.target.value) }
                     />
@@ -87,6 +93,7 @@ export default function Settings() {
                     <input
                         type="password"
                         placeholder="Password"
+                        autoComplete="off"
                         name="password"
                         onChange={ (e) => setPassword(e.target.value) }
                     />

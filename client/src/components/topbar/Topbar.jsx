@@ -5,7 +5,6 @@ import './topbar.css';
 
 export default function Topbar() {
     const { user, dispatch } = useContext(Context);
-    const PF = "http://localhost:5000/images/"
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" });
@@ -14,10 +13,34 @@ export default function Topbar() {
     return (
         <div className="top">
             <div className="topLeft">
-                <i className="topIcon fab fa-facebook-square"></i>
-                <i className="topIcon fab fa-instagram-square"></i>
-                <i className="topIcon fab fa-github-square"></i>
-                <i className="topIcon fab fa-reddit-square"></i>
+                <a href="https://www.facebook.com/vineeth.bv.12"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="link"
+                >
+                    <i className="topIcon fab fa-facebook-square"></i>
+                </a>
+                <a href="https://www.instagram.com/vins._.dragonis/"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="link"
+                >
+                    <i className="topIcon fab fa-instagram-square"></i>
+                </a>
+                <a href="https://github.com/vinsdragonis"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="link"
+                >
+                    <i className="topIcon fab fa-github-square"></i>
+                </a>
+                <a href="https://www.reddit.com/user/KingDragonis"
+                    rel="noreferrer"
+                    target="_blank"
+                    className="link"
+                >
+                    <i className="topIcon fab fa-reddit-square"></i>
+                </a>
             </div>
             <div className="topCenter">
                 <ul className="topList">
@@ -33,7 +56,9 @@ export default function Topbar() {
                     <Link className="link" to="/write" >
                         <li className="topListItem">WRITE</li>
                     </Link>
-                    <li className="topListItem" onClick={handleLogout}>{ user && "LOGOUT" }</li>
+                    <li className="topListItem" onClick={handleLogout}>
+                        { user && "LOGOUT" }
+                    </li>
                 </ul>
             </div>
             <div className="topRight">
@@ -41,7 +66,7 @@ export default function Topbar() {
                     <Link className="link" to="/settings">
                         <img
                             className="topImg"
-                            src={ PF + user.profilePic }
+                            src={ user.profilePic }
                             alt=""
                         />
                     </Link>
