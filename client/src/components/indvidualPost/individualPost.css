@@ -91,6 +91,7 @@
 .indPostDescInput:focus {
     outline: none;
 }
+
 .indPostButton {
     width: 100px;
     border: none;
@@ -101,4 +102,17 @@
     cursor: pointer;
     align-self: flex-end;
     margin-top: 20px;
+}
+
+@media (max-width: 1200px) {
+    .indPostDescInput {
+        width: 900px;
+        flex: 9;
+    }
+}
+
+@media(max-width: 768px) {
+    .indPostDescInput {
+        width: 576px;
+    }
 }
