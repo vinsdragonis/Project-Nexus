@@ -84,6 +84,8 @@
     color: #666;
     font-size: 18px;
     line-height: 25px;
+    width: 1200px;
+    height: 250px;
 }
 
 .indPostDescInput:focus {
