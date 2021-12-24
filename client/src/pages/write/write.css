@@ -16,8 +16,12 @@
 
 .writeFormGroup {
     margin-left: 150px;
-    display: flex;
+    display: inline-block;
     align-items: center;
+}
+
+.writeFormGroup > input:nth-of-type(2) {
+    font-size: 20px;
 }
 
 .writeIcon {

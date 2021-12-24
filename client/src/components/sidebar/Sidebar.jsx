@@ -17,7 +17,7 @@ export default function Sidebar() {
 
     return (
         <div className="sidebar">
-            <div className="sidebarItem">
+            {/* <div className="sidebarItem">
                 <span className="sidebarTitle">ABOUT THE AUTHOR</span>
                 <img
                     src="https://avatars.githubusercontent.com/u/37930821?v=4"
@@ -27,7 +27,7 @@ export default function Sidebar() {
                     I'm Vineeth, a Computer Science undergraduate from BMS College of Engineering.
                     I am a full stack developer, security analyst and pentration tester.
                 </p>
-            </div>
+            </div> */}
             <div className="sidebarItem">
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">
