@@ -30,9 +30,11 @@ export default function Sidebar() {
                         <li>
                             <p className="userDetails">
                                 <strong>Username: </strong> 
-                                <span>
-                                    { user.username }
-                                </span>
+                                <Link className="link" to={`/?user=${user.username}`}>
+                                    <span>
+                                        { user.username }
+                                    </span>
+                                </Link>
                             </p>
                         </li>
                         <li>
