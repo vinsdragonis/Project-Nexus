@@ -1,10 +1,11 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 import "./sidebar.css";
 
 export default function Sidebar() {
-    
+    const { user } = useContext(Context);
     const [cats, setCats] = useState([]);
 
     useEffect(() => {
@@ -17,17 +18,35 @@ export default function Sidebar() {
 
     return (
         <div className="sidebar">
-            {/* <div className="sidebarItem">
-                <span className="sidebarTitle">ABOUT THE AUTHOR</span>
-                <img
-                    src="https://avatars.githubusercontent.com/u/37930821?v=4"
-                    alt=""
-                />
-                <p>
-                    I'm Vineeth, a Computer Science undergraduate from BMS College of Engineering.
-                    I am a full stack developer, security analyst and pentration tester.
-                </p>
-            </div> */}
+            {
+                user && 
+                <div className="sidebarItem">
+                    <span className="sidebarTitle">ABOUT ME</span>
+                    <img
+                        src={ user.profilePic }
+                        alt=""
+                    />
+                    <ul style={{ listStyleType:'none' }}>
+                        <li>
+                            <p className="userDetails">
+                                <strong>Username: </strong> 
+                                <span>
+                                    { user.username }
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p className="userDetails">
+                                <strong>Joined on: </strong>
+                                <span>
+                                    { new Date(user.createdAt).toDateString() }
+                                </span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            }
+
             <div className="sidebarItem">
                 <span className="sidebarTitle">CATEGORIES</span>
                 <ul className="sidebarList">

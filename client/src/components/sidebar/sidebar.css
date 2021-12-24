@@ -36,8 +36,18 @@
     height: 250px;
 }
 
+.sidebarItem > ul {
+  padding: 30px;
+  align-items: center;
+  display: inline;
+}
+
 .sidebarItem > p {
   padding: 30px;
+}
+
+.userDetails {
+  margin-top: 7px;
 }
 
 .sidebarList {
@@ -46,7 +56,7 @@
 }
 
 .sidebarListItem {
-  display: inline-block;
+  display: flex;
   width: 50%;
   margin-top: 15px;
   margin-left: 20px;

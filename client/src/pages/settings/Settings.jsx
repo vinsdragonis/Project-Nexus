@@ -90,6 +90,7 @@ export default function Settings() {
                         placeholder="Tim"
                         name="name"
                         autoComplete="off"
+                        value={ user.username }
                         onChange={ (e) => setUsername(e.target.value) }
                     />
                     <label>Email</label>
@@ -98,6 +99,7 @@ export default function Settings() {
                         placeholder="example@domain.com"
                         autoComplete="off"
                         name="email"
+                        value={ user.email }
                         onChange={ (e) => setEmail(e.target.value) }
                     />
                     <label>Password</label>
@@ -106,6 +108,7 @@ export default function Settings() {
                         placeholder="Password"
                         autoComplete="off"
                         name="password"
+                        value={ user.password }
                         onChange={ (e) => setPassword(e.target.value) }
                     />
                     <button className="settingsSubmitButton" type="submit">

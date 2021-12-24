@@ -8,7 +8,7 @@ import './individualPost.css';
 export default function IndividualPost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
-    // const PF = "/images/";
+    const PF = "http://localhost:5000/images/";
     const { user } = useContext(Context);
     const [post, setPost] = useState({});
     const [title, setTitle] = useState("");
@@ -52,7 +52,7 @@ export default function IndividualPost() {
                 { post.photo &&    
                     <img
                         className="indPostImg"
-                        src={ post.photo }
+                        src={ PF + post.photo }
                         alt=""
                     />
                 }
