@@ -28,3 +28,9 @@
     margin-top: 80px;
     object-fit: cover;
 }
+
+@media (maxWidth: 768px) {
+    .header {
+        width: 100%;
+    }
+}
