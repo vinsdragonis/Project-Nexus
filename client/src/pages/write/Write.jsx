@@ -6,7 +6,8 @@ import { Context } from "../../context/Context";
 export default function Write() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
-    const [file, setFile] = useState(null);
+    const [categories, setCategories] = useState("");
+    // const [file, setFile] = useState(null);
     const { user } = useContext(Context);
 
     const handleSubmit = async (e) => {
@@ -15,17 +16,19 @@ export default function Write() {
             username: user.username,
             title,
             desc,
+            categories,
         };
-        if (file) {
-            const data =new FormData();
-            const filename = Date.now() + file.name;
-            data.append("name", filename);
-            data.append("file", file);
-            newPost.photo = filename;
-            try {
-                await axios.post("http://localhost:5000/api/upload", data);
-            } catch (err) {}
-        }
+
+        // if (file) {
+        //     const data =new FormData();
+        //     const filename = Date.now() + file.name;
+        //     data.append("name", filename);
+        //     data.append("file", file);
+        //     newPost.photo = filename;
+        //     try {
+        //         await axios.post("http://localhost:5000/api/upload", data);
+        //     } catch (err) {}
+        // }
 
         try {
             const res = await axios.post("http://localhost:5000/api/posts", newPost);
@@ -35,13 +38,13 @@ export default function Write() {
 
     return (
         <div className="write">
-            {file && (
+            {/* {file && (
                 <img
                     className="writeImg"
                     src={URL.createObjectURL(file)}
                     alt=""
                 />
-            )}
+            )} */}
             <form className="writeForm" onSubmit={ handleSubmit }>
                 <div className="writeFormGroup">
                     {/* <label htmlFor="fileInput">
@@ -59,6 +62,13 @@ export default function Write() {
                         type="text"
                         autoFocus={ true }
                         onChange={ e=>setTitle(e.target.value) }
+                    />
+                    <input
+                        className="writeInput"
+                        placeholder="Category"
+                        type="text"
+                        autoFocus={ true }
+                        onChange={ e=>setCategories(e.target.value) }
                     />
                 </div>
                 <div className="writeFormGroup">

@@ -5,7 +5,8 @@ import { Context } from "../../context/Context";
 import axios from "axios";
 
 export default function Settings() {
-    const [file, setFile] = useState(null);
+    // const [file, setFile] = useState(null);
+    const [file] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -63,7 +64,7 @@ export default function Settings() {
                             src={ file ? URL.createObjectURL(file) : user.profilePic }
                             alt=""
                         />
-                        <label htmlFor="fileInput">
+                        {/* <label htmlFor="fileInput">
                             <i className="settingsPPIcon far fa-user-circle"></i>{" "}
                         </label>
                         <input
@@ -72,7 +73,7 @@ export default function Settings() {
                             style={{ display: "none" }}
                             className="settingsPPInput"
                             onChange={ (e) => setFile(e.target.files[0]) }
-                        />
+                        /> */}
                         {/* <input
                             id="fileInput"
                             type="text"
