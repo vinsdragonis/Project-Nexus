@@ -7,23 +7,24 @@ export default function Write() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [categories, setCategories] = useState([]);
-    // const [file, setFile] = useState(null);
+    const [photo, setPhoto] = useState("");
     const { user } = useContext(Context);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newPost = {
             username: user.username,
+            photo,
             title,
-            desc,
             categories,
+            desc,
         };
 
-        // if (file) {
+        // if (photo) {
         //     const data =new FormData();
-        //     const filename = Date.now() + file.name;
+        //     const filename = Date.now() + photo.name;
         //     data.append("name", filename);
-        //     data.append("file", file);
+        //     data.append("photo", photo);
         //     newPost.photo = filename;
         //     try {
         //         await axios.post("http://localhost:5000/api/upload", data);
@@ -38,10 +39,10 @@ export default function Write() {
 
     return (
         <div className="write">
-            {/* {file && (
+            {/* {photo && (
                 <img
                     className="writeImg"
-                    src={URL.createObjectURL(file)}
+                    src={URL.createObjectURL(photo)}
                     alt=""
                 />
             )} */}
@@ -49,13 +50,7 @@ export default function Write() {
                 <div className="writeFormGroup">
                     {/* <label htmlFor="fileInput">
                         <i className="writeIcon fas fa-plus"></i>
-                    </label>
-                    <input
-                        id="fileInput"
-                        type="file"
-                        style={{ display: "none" }}
-                        onChange={ (e) => setFile(e.target.files[0]) }
-                    /> */}
+                    </label> */}
                     <input
                         className="writeInput"
                         placeholder="Title"
@@ -65,6 +60,12 @@ export default function Write() {
                     />
                 </div>
                 <div className="writeFormGroup">
+                    <input
+                        className="writeInput"
+                        type="text"
+                        placeholder="Enter image URL"
+                        onChange={ (e) => setPhoto(e.target.value) }
+                    />
                     <input
                         className="writeInput"
                         placeholder="Category"

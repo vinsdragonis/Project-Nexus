@@ -26,7 +26,7 @@ export default function Sidebar() {
                         src={ user.profilePic }
                         alt=""
                     />
-                    <ul style={{ listStyleType:'none' }}>
+                    <ul className="user-profile" style={{ listStyleType:'none' }}>
                         <li>
                             <p className="userDetails">
                                 <strong>Username: </strong> 
