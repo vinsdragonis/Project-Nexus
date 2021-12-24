@@ -54,11 +54,10 @@
 .sidebarList {
   list-style-type: none;
   margin-bottom: 30px;
-  display: inline-block;
 }
 
 .sidebarListItem {
-  display: block;
+  display: flex;
   width: 50%;
   margin-top: 15px;
   margin-left: 20px;
