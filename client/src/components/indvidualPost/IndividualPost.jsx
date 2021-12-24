@@ -70,8 +70,8 @@ export default function IndividualPost() {
                          {post.username === user?.username && (
                         <div className="indPostEdit">
                             <i
-                            className="indPostIcon far fa-edit"
-                            onClick={() => setUpdateMode(true)}
+                                className="indPostIcon far fa-edit"
+                                onClick={() => setUpdateMode(true)}
                             ></i>
                             <i
                             className="indPostIcon far fa-trash-alt"

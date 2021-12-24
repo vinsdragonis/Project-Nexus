@@ -44,6 +44,8 @@ export default function Write() {
                     className="writeImg"
                     src={URL.createObjectURL(photo)}
                     alt=""
+                    width="500px"
+                    height="250px"
                 />
             )} */}
             <form className="writeForm" onSubmit={ handleSubmit }>
