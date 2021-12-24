@@ -20,6 +20,10 @@ const UserSchema = new mongoose.Schema(
             type: String,
             default: "https://upload.wikimedia.org/wikipedia/en/archive/b/b1/20210811085633%21Portrait_placeholder.png",
         },
+        desc: {
+            type: String,
+            default: "Hey there! I'm new around here...",
+        },
     },
     {
         timestamps: true

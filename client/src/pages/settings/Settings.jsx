@@ -9,6 +9,7 @@ export default function Settings() {
     const [file] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
+    const [desc, setDesc] = useState("");
     const [password, setPassword] = useState("");
     const [success, setSuccess] = useState(false);
 
@@ -23,6 +24,7 @@ export default function Settings() {
             file,
             username,
             email,
+            desc,
             password,
         };
 
@@ -90,7 +92,6 @@ export default function Settings() {
                         placeholder="Tim"
                         name="name"
                         autoComplete="off"
-                        value={ user.username }
                         onChange={ (e) => setUsername(e.target.value) }
                     />
                     <label>Email</label>
@@ -99,8 +100,15 @@ export default function Settings() {
                         placeholder="example@domain.com"
                         autoComplete="off"
                         name="email"
-                        value={ user.email }
                         onChange={ (e) => setEmail(e.target.value) }
+                    />
+                    <label>Description</label>
+                    <input
+                        type="text"
+                        placeholder="Hey there! I'm new around here..."
+                        autoComplete="off"
+                        name="Description"
+                        onChange={ (e) => setDesc(e.target.value) }
                     />
                     <label>Password</label>
                     <input
@@ -108,7 +116,6 @@ export default function Settings() {
                         placeholder="Password"
                         autoComplete="off"
                         name="password"
-                        value={ user.password }
                         onChange={ (e) => setPassword(e.target.value) }
                     />
                     <button className="settingsSubmitButton" type="submit">

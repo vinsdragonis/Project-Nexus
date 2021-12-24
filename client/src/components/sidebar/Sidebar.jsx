@@ -37,12 +37,32 @@ export default function Sidebar() {
                         </li>
                         <li>
                             <p className="userDetails">
+                                <strong>Email: </strong> 
+                                <span>
+                                    { user.email }
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p className="userDetails">
                                 <strong>Joined on: </strong>
                                 <span>
                                     { new Date(user.createdAt).toDateString() }
                                 </span>
                             </p>
                         </li>
+                        {
+                            user.desc && 
+                            <li>
+                                <p className="userDetails">
+                                    <strong>Description: </strong>
+                                    <br />
+                                    <span>
+                                        { user.desc }
+                                    </span>
+                                </p>
+                            </li>
+                        }
                     </ul>
                 </div>
             }
@@ -59,7 +79,7 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </div>
-            <div className="sidebarItem">
+            {/* <div className="sidebarItem">
                 <span className="sidebarTitle">FOLLOW ME</span>
                     <div className="sidebarSocial">
                         <a href="https://www.facebook.com/vineeth.bv.12"
@@ -91,7 +111,7 @@ export default function Sidebar() {
                         <i className="sidebarIcon fab fa-reddit-square"></i>
                     </a>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
