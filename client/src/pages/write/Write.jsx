@@ -73,7 +73,7 @@ export default function Write() {
                         placeholder="Category"
                         type="text"
                         autoFocus={ true }
-                        onChange={ e=>setCategories(e.target.value) }
+                        onChange={ e=> setCategories(e.target.value) }
                     />
                 </div>
                 <div className="writeFormGroup">
