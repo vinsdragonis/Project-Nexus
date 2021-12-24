@@ -81,8 +81,8 @@ export default function Sidebar() {
                     ))}
                 </ul>
             </div>
-            {/* <div className="sidebarItem">
-                <span className="sidebarTitle">FOLLOW ME</span>
+            <div className="sidebarItem">
+                <span className="sidebarTitle">SOCIAL MEDIA</span>
                     <div className="sidebarSocial">
                         <a href="https://www.facebook.com/vineeth.bv.12"
                         rel="noreferrer"
@@ -113,7 +113,7 @@ export default function Sidebar() {
                         <i className="sidebarIcon fab fa-reddit-square"></i>
                     </a>
                 </div>
-            </div> */}
+            </div>
         </div>
     );
 }
