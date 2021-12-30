@@ -1,6 +1,6 @@
 # Project-Nexus
 
-### A blog site built using:
+### A general purpose blog site built using:
 
 - `React.js`
 - `Node.js`
