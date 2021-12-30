@@ -23,6 +23,7 @@
 - [ ] Like, comment on blogs
 - [x] Remaster UI
 - [ ] Add images to posts from local storage
+- [ ] Change profile pic
 
 ### Status:
 - [x] Specifications
