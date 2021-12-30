@@ -34,6 +34,7 @@ export default function Register() {
                     className="registerInput"
                     type="text"
                     placeholder="Enter username"
+                    required
                     onChange={ (e) => setUsername(e.target.value) }
                 />
                 <label>Email</label>
@@ -41,6 +42,7 @@ export default function Register() {
                     className="registerInput"
                     type="text"
                     placeholder="Enter email"
+                    required
                     onChange={ (e) => setEmail(e.target.value) }
                 />
                 <label>Password</label>
@@ -48,6 +50,7 @@ export default function Register() {
                     className="registerInput"
                     type="password"
                     placeholder="Enter password"
+                    required
                     onChange={ (e) => setPassword(e.target.value) }
                 />
                 <button className="registerButton" type="submit">

@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import Homepage from './pages/homepage/Homepage';
 import About from './pages/about/About';
 import Individual from './pages/individual/Individual';

@@ -37,6 +37,7 @@ export default function Login() {
                     type="text"
                     className="loginInput"
                     placeholder="Enter username"
+                    required
                     ref={ userRef }
                 />
                 <label>Password</label>
@@ -44,6 +45,7 @@ export default function Login() {
                     type="password"
                     className="loginInput"
                     placeholder="Enter password"
+                    required
                     ref={ passwordRef }
                 />
                 <button className="loginButton" type="submit" disabled={ isFetching }>
