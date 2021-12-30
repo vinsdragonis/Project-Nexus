@@ -1,4 +1,5 @@
 import Homepage from './pages/homepage/Homepage';
+import About from './pages/about/About';
 import Individual from './pages/individual/Individual';
 import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
@@ -21,6 +22,7 @@ function App() {
       <Topbar />
       <Routes>
         <Route exact path="/" element={ <Homepage /> } />
+        <Route path="/about" element={ <About /> } />
         <Route path="/posts" element={ <Homepage /> } />
         <Route path="/post/:id" element={ <Individual /> } />
         <Route path="/write" element={ user ? <Write /> : <Login /> } />
