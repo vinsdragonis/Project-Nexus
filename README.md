@@ -16,7 +16,8 @@
 - [x] Feed
 - [x] Settings page
 - [x] Checkout other users' blogs
-- [x] Side panel viewing user details
+- [x] Side panel on the right viewing user details
+- [x] Side panel on the left viewing categories
 
 ### Future plans:
 
