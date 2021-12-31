@@ -4,15 +4,19 @@ import axios from "axios";
 import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Posts from '../../components/posts/Posts';
+import SyncLoader from "react-spinners/SyncLoader";
 import './homepage.css';
 
 export default function Homepage() {    
     const [posts, setPosts] = useState([]);
+    const [loading, setLoading] = useState(false);
     const { search } = useLocation();
 
     useEffect(() => {
+        setLoading(true);
         const fetchPosts = async () => {
             const res = await axios.get("http://localhost:5000/api/posts" + search, {mode: 'cors'});
+            setLoading(false);
             setPosts(res.data);
         };
         
@@ -21,11 +25,26 @@ export default function Homepage() {
 
     return (
         <>
-            <Header />
-            <div className="home">
-                <Posts posts={ posts } />
-                <Sidebar />
-            </div>
+            { loading ? 
+                (
+                    <div className="loader">  
+                        <SyncLoader
+                            color={"#ffa000"}
+                            loading={loading}
+                            size={25}
+                            margin={5}
+                        />
+                    </div>
+                ) : (
+                    <>
+                        <Header />
+                        <div className="home">
+                            <Posts posts={ posts } />
+                            <Sidebar />
+                        </div>
+                    </>
+                )
+            }
         </>
     )
 }

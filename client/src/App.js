@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import Homepage from './pages/homepage/Homepage';
 import About from './pages/about/About';
 import Individual from './pages/individual/Individual';
@@ -15,9 +14,11 @@ import {
 } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "./context/Context";
+import './app.css';
 
 function App() {
   const { user } = useContext(Context);
+
   return (
     <Router>
       <Topbar />
