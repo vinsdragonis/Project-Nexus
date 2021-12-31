@@ -20,6 +20,9 @@
 
 ### Future plans:
 
+- [x] Loaders
+- [x] About us page
+- [ ] Contact page
 - [ ] Like, comment on blogs
 - [ ] Responsive UI
 - [ ] Add images to posts from local storage
