@@ -1,9 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import "./write.css";
 import axios from "axios";
+import SyncLoader from "react-spinners/SyncLoader";
 import { Context } from "../../context/Context";
 
 export default function Write() {
+    const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [categories, setCategories] = useState([]);
@@ -37,58 +39,80 @@ export default function Write() {
         } catch (err) {}
     };
 
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000);
+    }, []);
+
     return (
-        <div className="write">
-            {/* {photo && (
-                <img
-                    className="writeImg"
-                    src={URL.createObjectURL(photo)}
-                    alt=""
-                    width="500px"
-                    height="250px"
-                />
-            )} */}
-            <form className="writeForm" onSubmit={ handleSubmit }>
-                <div className="writeFormGroup">
-                    {/* <label htmlFor="fileInput">
-                        <i className="writeIcon fas fa-plus"></i>
-                    </label> */}
-                    <input
-                        className="writeInput"
-                        placeholder="Title"
-                        type="text"
-                        autoFocus={ true }
-                        onChange={ e=>setTitle(e.target.value) }
-                    />
-                </div>
-                <div className="writeFormGroup">
-                    <input
-                        className="writeInput"
-                        type="text"
-                        placeholder="Enter image URL"
-                        onChange={ (e) => setPhoto(e.target.value) }
-                    />
-                    <input
-                        className="writeInput"
-                        placeholder="Category"
-                        type="text"
-                        autoFocus={ true }
-                        onChange={ e=> setCategories(e.target.value) }
-                    />
-                </div>
-                <div className="writeFormGroup">
-                    <textarea
-                        className="writeInput writeText"
-                        placeholder="Tell your story..."
-                        type="text"
-                        autoFocus={ true }
-                        onChange={ e=>setDesc(e.target.value) }
-                    />
-                </div>
-                <button className="writeSubmit" type="submit">
-                    Publish
-                </button>
-            </form>
-        </div>
+        <>
+            { loading ?
+                (
+                    <div className="loader">  
+                        <SyncLoader
+                            color={"#ffa000"}
+                            loading={loading}
+                            size={25}
+                            margin={5}
+                        />
+                    </div>
+                ) : (
+                    <div className="write">
+                        {/* {photo && (
+                            <img
+                                className="writeImg"
+                                src={URL.createObjectURL(photo)}
+                                alt=""
+                                width="500px"
+                                height="250px"
+                            />
+                        )} */}
+                        <form className="writeForm" onSubmit={ handleSubmit }>
+                            <div className="writeFormGroup">
+                                {/* <label htmlFor="fileInput">
+                                    <i className="writeIcon fas fa-plus"></i>
+                                </label> */}
+                                <input
+                                    className="writeInput"
+                                    placeholder="Title"
+                                    type="text"
+                                    autoFocus={ true }
+                                    onChange={ e=>setTitle(e.target.value) }
+                                />
+                            </div>
+                            <div className="writeFormGroup">
+                                <input
+                                    className="writeInput"
+                                    type="text"
+                                    placeholder="Enter image URL"
+                                    onChange={ (e) => setPhoto(e.target.value) }
+                                />
+                                <input
+                                    className="writeInput"
+                                    placeholder="Category"
+                                    type="text"
+                                    autoFocus={ true }
+                                    onChange={ e=> setCategories(e.target.value) }
+                                />
+                            </div>
+                            <div className="writeFormGroup">
+                                <textarea
+                                    className="writeInput writeText"
+                                    placeholder="Tell your story..."
+                                    type="text"
+                                    autoFocus={ true }
+                                    onChange={ e=>setDesc(e.target.value) }
+                                />
+                            </div>
+                            <button className="writeSubmit" type="submit">
+                                Publish
+                            </button>
+                        </form>
+                    </div>
+                )
+            }
+        </>        
     )
 }

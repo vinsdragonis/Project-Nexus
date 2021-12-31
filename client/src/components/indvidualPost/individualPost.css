@@ -2,6 +2,16 @@
     flex: 9;
 }
 
+.loader {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+
 .indPostWrapper {
     padding: 20px;
     padding-right: 0;

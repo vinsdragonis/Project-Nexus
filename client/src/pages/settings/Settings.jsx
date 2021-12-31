@@ -1,12 +1,14 @@
 import "./settings.css";
 import Sidebar from "../../components/sidebar/Sidebar";
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Context } from "../../context/Context";
+import SyncLoader from "react-spinners/SyncLoader";
 import axios from "axios";
 
 export default function Settings() {
     // const [file, setFile] = useState(null);
     const [file] = useState(null);
+    const [loading, setLoading] = useState(false);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [desc, setDesc] = useState("");
@@ -57,97 +59,119 @@ export default function Settings() {
         } catch (error) {}
     };
 
+    useEffect(() => {
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false)
+        }, 1000);
+    }, []);
+
     return (
-        <div className="settings">
-            <div className="settingsWrapper">
-                <div className="settingsTitle">
-                    <span className="settingsTitleUpdate">Update Your Account</span>
-                    <span className="settingsTitleDelete"
-                        onClick={ handleDeleteAcc }
-                    >
-                        Delete Account
-                    </span>
-                </div>
-                <form
-                    className="settingsForm"
-                    autoComplete='off'
-                    onSubmit={ handleSubmit }
-                >
-                    <label>Profile Picture</label>
-                    <div className="settingsPP">
-                        <img
-                            src={ file ? URL.createObjectURL(file) : user.profilePic }
-                            alt=""
+        <>
+            { loading ?
+                (
+                    <div className="loader">  
+                        <SyncLoader
+                            color={"#ffa000"}
+                            loading={loading}
+                            size={25}
+                            margin={5}
                         />
-                        {/* <label htmlFor="fileInput">
-                            <i className="settingsPPIcon far fa-user-circle"></i>{" "}
-                        </label>
-                        <input
-                            id="fileInput"
-                            type="file"
-                            style={{ display: "none" }}
-                            className="settingsPPInput"
-                            onChange={ (e) => setFile(e.target.files[0]) }
-                        /> */}
-                        {/* <input
-                            id="fileInput"
-                            type="text"
-                            name="fileInput"
-                            placeholder="Profile image URL"
-                            className="fileInput"
-                            autoComplete="off"
-                            onChange={ (e) => setFile(e.target.files[0]) }
-                        /> */}
                     </div>
-                    <label>Username</label>
-                    <input
-                        type="text"
-                        placeholder="Tim"
-                        name="name"
-                        autoComplete="off"
-                        onChange={ (e) => setUsername(e.target.value) }
-                    />
-                    <label>Email</label>
-                    <input
-                        type="email"
-                        placeholder="example@domain.com"
-                        autoComplete="off"
-                        name="email"
-                        onChange={ (e) => setEmail(e.target.value) }
-                    />
-                    <label>Description</label>
-                    <input
-                        type="text"
-                        placeholder="Hey there! I'm new around here..."
-                        autoComplete="off"
-                        name="Description"
-                        onChange={ (e) => setDesc(e.target.value) }
-                    />
-                    <label>Password</label>
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        autoComplete="off"
-                        name="password"
-                        onChange={ (e) => setPassword(e.target.value) }
-                    />
-                    <button className="settingsSubmitButton" type="submit">
-                        Update
-                    </button>
-                    { success && (
-                        <span
-                            style={{
-                                color: "green",
-                                textAlign: "center",
-                                marginTop: "20px"
-                            }}
-                        >
-                            Profile has been updated...
-                        </span>
-                    )}
-                </form>
-            </div>
-            <Sidebar />
-        </div>
+                ) : (
+                    <div className="settings">
+                        <div className="settingsWrapper">
+                            <div className="settingsTitle">
+                                <span className="settingsTitleUpdate">Update Your Account</span>
+                                <span className="settingsTitleDelete"
+                                    onClick={ handleDeleteAcc }
+                                >
+                                    Delete Account
+                                </span>
+                            </div>
+                            <form
+                                className="settingsForm"
+                                autoComplete='off'
+                                onSubmit={ handleSubmit }
+                            >
+                                <label>Profile Picture</label>
+                                <div className="settingsPP">
+                                    <img
+                                        src={ file ? URL.createObjectURL(file) : user.profilePic }
+                                        alt=""
+                                    />
+                                    {/* <label htmlFor="fileInput">
+                                        <i className="settingsPPIcon far fa-user-circle"></i>{" "}
+                                    </label>
+                                    <input
+                                        id="fileInput"
+                                        type="file"
+                                        style={{ display: "none" }}
+                                        className="settingsPPInput"
+                                        onChange={ (e) => setFile(e.target.files[0]) }
+                                    /> */}
+                                    {/* <input
+                                        id="fileInput"
+                                        type="text"
+                                        name="fileInput"
+                                        placeholder="Profile image URL"
+                                        className="fileInput"
+                                        autoComplete="off"
+                                        onChange={ (e) => setFile(e.target.files[0]) }
+                                    /> */}
+                                </div>
+                                <label>Username</label>
+                                <input
+                                    type="text"
+                                    placeholder="Tim"
+                                    name="name"
+                                    autoComplete="off"
+                                    onChange={ (e) => setUsername(e.target.value) }
+                                />
+                                <label>Email</label>
+                                <input
+                                    type="email"
+                                    placeholder="example@domain.com"
+                                    autoComplete="off"
+                                    name="email"
+                                    onChange={ (e) => setEmail(e.target.value) }
+                                />
+                                <label>Description</label>
+                                <input
+                                    type="text"
+                                    placeholder="Hey there! I'm new around here..."
+                                    autoComplete="off"
+                                    name="Description"
+                                    onChange={ (e) => setDesc(e.target.value) }
+                                />
+                                <label>Password</label>
+                                <input
+                                    type="password"
+                                    placeholder="Password"
+                                    autoComplete="off"
+                                    name="password"
+                                    onChange={ (e) => setPassword(e.target.value) }
+                                />
+                                <button className="settingsSubmitButton" type="submit">
+                                    Update
+                                </button>
+                                { success && (
+                                    <span
+                                        style={{
+                                            color: "green",
+                                            textAlign: "center",
+                                            marginTop: "20px"
+                                        }}
+                                    >
+                                        Profile has been updated...
+                                    </span>
+                                )}
+                            </form>
+                        </div>
+                        <Sidebar />
+                    </div>
+                )
+            }
+        </>
     )
 }
