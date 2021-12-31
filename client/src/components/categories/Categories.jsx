@@ -7,11 +7,14 @@ export default function Categories() {
     const [cats, setCats] = useState([]);
 
     useEffect(() => {
+        let isMounted = true; 
         const getCats = async () => {
             const res = await axios.get("http://localhost:5000/api/categories");
-            setCats(res.data);
+            if (isMounted) setCats(res.data);
         };
+        
         getCats();
+        return () => { isMounted = false };
     }, []);
 
     return (
