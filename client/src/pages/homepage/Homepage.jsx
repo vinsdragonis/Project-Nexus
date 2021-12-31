@@ -3,6 +3,7 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
+import Categories from '../../components/categories/Categories';
 import Posts from '../../components/posts/Posts';
 import SyncLoader from "react-spinners/SyncLoader";
 import './homepage.css';
@@ -39,6 +40,7 @@ export default function Homepage() {
                     <>
                         <Header />
                         <div className="home">
+                            <Categories />
                             <Posts posts={ posts } />
                             <Sidebar />
                         </div>

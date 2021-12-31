@@ -1,0 +1,45 @@
+.catBar {
+  flex: 1;
+  height: fit-content;
+  margin: 20px;
+  padding-bottom: 30px;
+  background-color: #fdfbfb;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catBarItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.catBarTitle {
+  margin: 10px;
+  padding: 5px;
+  width: 80%;
+  /* border-top: solid 1px #a7a4a4; */
+  border-bottom: solid 1px #a7a4a4;
+  text-align: center;
+  font-family: "Varela Round", sans-serif;
+  font-size: 12px;
+  line-height: 19px;
+  color: #222222;
+  font-weight: 600;
+}
+
+.catBarList {
+  list-style-type: none;
+  margin-bottom: 30px;
+}
+
+.catBarListItem {
+  display: flex;
+  width: 50%;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 50px;
+  cursor: pointer;
+}

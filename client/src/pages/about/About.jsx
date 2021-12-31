@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Sidebar from '../../components/sidebar/Sidebar';
+import Categories from '../../components/categories/Categories';
 import SyncLoader from "react-spinners/SyncLoader";
 import './about.css';
 
@@ -28,6 +29,7 @@ export default function About() {
                 ) : (
                     <div>
                         <div className="aboutWrapper">
+                            <Categories />
                             <div className="about">
                                 <div className="section">
                                     <h1 className="title">
