@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "bower install && grunt build",
     "start": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
