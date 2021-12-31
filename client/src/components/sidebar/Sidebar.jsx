@@ -19,6 +19,14 @@ export default function Sidebar() {
                     <ul className="user-profile" style={{ listStyleType:'none' }}>
                         <li>
                             <p className="userDetails">
+                                <strong>Full name: </strong> 
+                                <span>
+                                    { user.fullname }
+                                </span>
+                            </p>
+                        </li>
+                        <li>
+                            <p className="userDetails">
                                 <strong>Username: </strong> 
                                 <Link className="link" to={`/?user=${user.username}`}>
                                     <span>

@@ -2,6 +2,9 @@ const mongoose = require("mongoose");
 
 const UserSchema = new mongoose.Schema(
     {
+        fullname: {
+            type: String,
+        },
         username: {
             type: String,
             required: true,
@@ -18,7 +21,7 @@ const UserSchema = new mongoose.Schema(
         },
         profilePic: {
             type: String,
-            default: "https://upload.wikimedia.org/wikipedia/en/archive/b/b1/20210811085633%21Portrait_placeholder.png",
+            default: "https://cdn-icons-png.flaticon.com/512/924/924874.png",
         },
         desc: {
             type: String,

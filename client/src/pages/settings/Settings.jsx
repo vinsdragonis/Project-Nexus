@@ -9,6 +9,7 @@ export default function Settings() {
     // const [file, setFile] = useState(null);
     const [file] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [fullname, setFullname] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [desc, setDesc] = useState("");
@@ -23,6 +24,7 @@ export default function Settings() {
         const updatedUser = {
             userId: user._id,
             file,
+            fullname,
             username,
             email,
             desc,
@@ -39,6 +41,23 @@ export default function Settings() {
         //         await axios.post("/upload", data);
         //     } catch (err) {}
         // }
+
+        if (updatedUser.fullname === "") {
+            updatedUser.fullname = user.fullname;
+        }
+
+        if (updatedUser.username === "") {
+            updatedUser.username = user.username;
+        }
+        
+        if (updatedUser.email === "") {
+            updatedUser.email = user.email;
+        }
+        
+        if (updatedUser.password === "") {
+            updatedUser.password = user.password;
+        }
+        
 
         try {
             const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser);
@@ -120,10 +139,18 @@ export default function Settings() {
                                         onChange={ (e) => setFile(e.target.files[0]) }
                                     /> */}
                                 </div>
+                                <label>Full name</label>
+                                <input
+                                    type="text"
+                                    placeholder="Timmy"
+                                    name="name"
+                                    autoComplete="off"
+                                    onChange={ (e) => setFullname(e.target.value) }
+                                />
                                 <label>Username</label>
                                 <input
                                     type="text"
-                                    placeholder="Tim"
+                                    placeholder="Tim01"
                                     name="name"
                                     autoComplete="off"
                                     onChange={ (e) => setUsername(e.target.value) }

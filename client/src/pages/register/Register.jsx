@@ -6,6 +6,7 @@ import './register.css';
 
 export default function Register() {
     const [loading, setLoading] = useState(false);
+    const [fullname, setFullname] = useState("");
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -17,6 +18,7 @@ export default function Register() {
         
         try {
             const res = await axios.post("http://localhost:5000/api/auth/register", {
+                fullname,
                 username,
                 email,
                 password,
@@ -50,6 +52,14 @@ export default function Register() {
                     <div className="register">
                         <span className="registerTitle">Register</span>
                         <form className="registerForm" onSubmit={handleSubmit}>
+                            <label>Full name</label>
+                            <input
+                                className="registerInput"
+                                type="text"
+                                placeholder="Enter full name"
+                                required
+                                onChange={ (e) => setFullname(e.target.value) }
+                            />
                             <label>Username</label>
                             <input
                                 className="registerInput"
