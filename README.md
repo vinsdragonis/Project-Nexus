@@ -32,6 +32,6 @@
 ### Status:
 - [x] Specifications
 - [x] Development
-- [x] Testing
-- [ ] Deployment
+- [x] Deployment
+- [ ] Testing
 - [ ] Completed
