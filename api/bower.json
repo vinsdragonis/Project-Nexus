@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "vinsdragonis <zrexteam128@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

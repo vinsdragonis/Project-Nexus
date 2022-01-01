@@ -10,7 +10,7 @@ const multer = require("multer");
 const cors = require("cors");
 const path = require("path");
 
-const port =  process.env.PORT || 5000;
+const port = process.env.PORT || 5000;
 
 dotenv.config();
 app.use(express.json());
@@ -51,5 +51,5 @@ app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
 
 app.listen(port, () => {
-  console.log("Backend server is running.");
+  console.log(`Backend server is running on ${port}`);
 });

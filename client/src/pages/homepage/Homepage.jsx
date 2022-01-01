@@ -16,7 +16,7 @@ export default function Homepage() {
     useEffect(() => {
         setLoading(true);
         const fetchPosts = async () => {
-            const res = await axios.get("http://localhost:5000/api/posts" + search, {mode: 'cors'});
+            const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts" + search, {mode: 'cors'});
             setLoading(false);
             setPosts(res.data);
         };
