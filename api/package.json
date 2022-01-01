@@ -6,12 +6,14 @@
   "scripts": {
     "build": "bower install && grunt build",
     "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node ./node_modules/bower/bin/bower install"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "bower": "^1.8.13",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
@@ -19,5 +21,9 @@
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "path": "^0.12.7"
+  },
+  "engines": {
+    "node": "16.x",
+    "npm": "8.x"
   }
 }
