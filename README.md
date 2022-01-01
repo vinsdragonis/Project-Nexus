@@ -34,4 +34,4 @@
 - [x] Development
 - [x] Deployment
 - [x] Testing
-- [ ] Completed
+- [x] Completed
