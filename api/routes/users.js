@@ -25,7 +25,7 @@ router.put('/:id', async (req, res) => {
             res.status(500).json(err);
         }
     } else {
-        // res.status(401).json("You can update only your account!");
+        res.status(401).json("You can update only your account!");
     }
 });
 
@@ -45,7 +45,7 @@ router.delete("/:id", async (req, res) => {
             res.status(404).json("User not found!");
         }
     } else {
-        // res.status(401).json("You can delete only your account!");
+        res.status(401).json("You can delete only your account!");
     }
 });
 
@@ -56,7 +56,7 @@ router.get("/:id", async (req, res) => {
         const { password, ...others } = user._doc;
         res.status(200).json(others);
     } catch (err) {
-        // res.status(500).json(err);
+        res.status(500).json(err);
     }
 });
 
