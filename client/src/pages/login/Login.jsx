@@ -25,7 +25,7 @@ export default function Login() {
             
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         } catch (err) {
-            setError(true);
+            // setError(true);
             dispatch({ type: "LOGIN_FAILURE" });
         }
     };
