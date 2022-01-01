@@ -19,7 +19,7 @@
 - [x] Side panel on the right viewing user details
 - [x] Side panel on the left viewing categories
 
-### Future plans:
+### Additional features:
 
 - [x] Loaders
 - [x] About us page
@@ -33,4 +33,5 @@
 - [x] Specifications
 - [x] Development
 - [ ] Testing
+- [ ] Deployment
 - [ ] Completed
