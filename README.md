@@ -33,5 +33,5 @@
 - [x] Specifications
 - [x] Development
 - [x] Deployment
-- [ ] Testing
+- [x] Testing
 - [ ] Completed
