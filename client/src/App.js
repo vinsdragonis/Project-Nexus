@@ -20,19 +20,21 @@ function App() {
   const { user } = useContext(Context);
 
   return (
-    <Router>
-      <Topbar />
-      <Routes>
-        <Route exact path="/" element={ <Homepage /> } />
-        <Route path="/about" element={ <About /> } />
-        <Route path="/posts" element={ <Homepage /> } />
-        <Route path="/post/:id" element={ <Individual /> } />
-        <Route path="/write" element={ user ? <Write /> : <Login /> } />
-        <Route path="/settings" element={ user ? <Settings /> : <Login /> } />
-        <Route path="/login" element={ user ? <Homepage /> : <Login /> } />
-        <Route path="/register" element={ user ? <Homepage /> : <Register /> } />
-      </Routes>
-    </Router>
+    <div className="app">
+      <Router>
+        <Topbar />
+        <Routes>
+          <Route exact path="/" element={ <Homepage /> } />
+          <Route path="/about" element={ <About /> } />
+          <Route path="/posts" element={ <Homepage /> } />
+          <Route path="/post/:id" element={ <Individual /> } />
+          <Route path="/write" element={ user ? <Write /> : <Login /> } />
+          <Route path="/settings" element={ user ? <Settings /> : <Login /> } />
+          <Route path="/login" element={ user ? <Homepage /> : <Login /> } />
+          <Route path="/register" element={ user ? <Homepage /> : <Register /> } />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

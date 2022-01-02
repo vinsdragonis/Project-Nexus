@@ -62,3 +62,9 @@
     color: #666;
     cursor: pointer;
 }
+
+@media (max-width: 768px) {
+    .top {
+        width: 100%;
+    }
+}
