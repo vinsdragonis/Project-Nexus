@@ -1,6 +1,5 @@
 .app {
-    display: flex;
-    flex-direction: column;
+    width: auto;
 }
 
 .loader {
@@ -14,6 +13,16 @@
 
 @media (max-width: 768px) {
     .app {
+        display: inline-block;
+        width: 160vh;
+    }
+
+    .header {
+        display: inline-block;
+        width: 160vh;
+    }
+
+    .topbar {
         display: inline-block;
         width: 160vh;
     }
