@@ -43,3 +43,13 @@
   margin-right: 50px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .catBar {
+    font-size: 24px;
+  }
+  
+  .catBarTitle {
+    font-size: 28px;
+  }
+}

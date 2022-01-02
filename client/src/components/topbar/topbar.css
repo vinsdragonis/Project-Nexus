@@ -67,4 +67,9 @@
     .top {
         width: 100%;
     }
+
+    .topListItem {
+        font-size: 22px;
+        font-weight: 400;
+    }
 }
