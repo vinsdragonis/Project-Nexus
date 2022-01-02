@@ -163,7 +163,7 @@ export default function Settings() {
                                     name="email"
                                     onChange={ (e) => setEmail(e.target.value) }
                                 />
-                                <label>Description</label>
+                                <label>Bio</label>
                                 <input
                                     type="text"
                                     placeholder="Hey there! I'm new around here..."

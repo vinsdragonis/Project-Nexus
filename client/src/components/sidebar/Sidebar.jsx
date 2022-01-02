@@ -55,7 +55,7 @@ export default function Sidebar() {
                             user.desc && 
                             <li>
                                 <p className="userDetails">
-                                    <strong>Description: </strong>
+                                    <strong>Bio: </strong>
                                     <br />
                                     <span>
                                         { user.desc }
