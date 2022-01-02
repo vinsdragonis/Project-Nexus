@@ -145,4 +145,8 @@
     .indPostInfo, .indPostDesc {
         font-size: 1.45em;
     }
+
+    .indPostImg {
+        height: 450px;
+    }
 }
