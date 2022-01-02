@@ -65,3 +65,13 @@
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
+
+@media (max-width: 768px) {
+    .postTitle {
+        font-size: 2em;
+    }
+
+    .postDesc, .postDate, .postInfo {
+        font-size: 1.15em;
+    }
+}
