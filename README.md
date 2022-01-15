@@ -24,6 +24,7 @@
 - [x] Loaders
 - [x] Responsive UI
 - [x] About us page
+- [x] User profile page
 - [ ] Contact page
 - [ ] Like, comment on blogs
 - [ ] Add images to posts from local storage
