@@ -40,16 +40,12 @@
     padding: 25px;
 }
 
-.userDetails {
+.userProfileDetails {
     font-size: 105%;
     padding-top: 5px;
 }
 
-.userDetails strong {
-    text-decoration: underline;
-}
-
-.userDetails span::before {
+.userProfileDetails span::before {
     content: " ";
 }
 
@@ -135,7 +131,7 @@
     color: #f1f1f1;
 }
 
-.glow-on-hover:hover .userDetails strong, .glow-on-hover:hover .profileTitle {
+.glow-on-hover:hover .userProfileDetails strong, .glow-on-hover:hover .profileTitle {
     color: #ffd446;
 }
 
@@ -157,18 +153,17 @@
         width: 80%;
     }
 
-    .userDetails strong {
+    .userProfileDetails strong {
         font-size: 150%;
-        text-decoration: none;
         font-weight: 800;
     }
 
-    .userDetails span {
+    .userProfileDetails span {
         font-size: 150%;
         font-weight: 500;
     }
 
-    .userDetails span::before {
+    .userProfileDetails span::before {
         content: " ";
     }
 }

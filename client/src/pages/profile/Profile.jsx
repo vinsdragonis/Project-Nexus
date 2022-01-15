@@ -43,7 +43,7 @@ export default function Profile() {
                                         </div>
                                         <ul className="user-profile" style={{ listStyleType: 'none' }}>
                                             <li>
-                                                <p className="userDetails">
+                                                <p className="userProfileDetails">
                                                     <strong>Full name:</strong> 
                                                     <span>
                                                         { user.fullname }
@@ -51,7 +51,7 @@ export default function Profile() {
                                                 </p>
                                             </li>
                                             <li>
-                                                <p className="userDetails">
+                                                <p className="userProfileDetails">
                                                     <strong>Username:</strong>
                                                     <Link className="link" to={`/?user=${user.username}`}>
                                                         <span>
@@ -61,7 +61,7 @@ export default function Profile() {
                                                 </p>
                                             </li>
                                             <li>
-                                                <p className="userDetails">
+                                                <p className="userProfileDetails">
                                                     <strong>Email:</strong>
                                                     <span>
                                                         { user.email }
@@ -69,7 +69,7 @@ export default function Profile() {
                                                 </p>
                                             </li>
                                             <li>
-                                                <p className="userDetails">
+                                                <p className="userProfileDetails">
                                                     <strong>Joined on:</strong>
                                                     <span>
                                                         { new Date(user.createdAt).toDateString() }
@@ -79,7 +79,7 @@ export default function Profile() {
                                             {
                                                 user.desc && 
                                                 <li>
-                                                    <p className="userDetails">
+                                                    <p className="userProfileDetails">
                                                         <strong>Bio:</strong> 
                                                         <span>
                                                             { user.desc }
