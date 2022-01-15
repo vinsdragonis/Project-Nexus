@@ -63,7 +63,7 @@ export default function Topbar() {
             </div>
             <div className="topRight">
                 { user ? (
-                    <Link className="link" to={`/users/${user._id}`}>
+                    <Link className="link" to="/profile">
                         <img
                             className="topImg"
                             src={ user.profilePic }

@@ -29,7 +29,7 @@ function App() {
           <Route path="/about" element={ <About /> } />
           <Route path="/posts" element={ <Homepage /> } />
           <Route path="/post/:id" element={ <Individual /> } />
-          <Route path="/users/:id" element={ <Profile /> } />
+          <Route path="/profile" element={ <Profile /> } />
           <Route path="/write" element={ user ? <Write /> : <Login /> } />
           <Route path="/settings" element={ user ? <Settings /> : <Login /> } />
           <Route path="/login" element={ user ? <Homepage /> : <Login /> } />
