@@ -7,7 +7,7 @@
 - `Express.js`
 - `MongoDB`
 
-### Features currently under development:
+### Features developed / currently under development:
 
 - [x] UI
 - [x] Signin / signup
@@ -22,10 +22,10 @@
 ### Additional features:
 
 - [x] Loaders
-- [x] Responsive UI
 - [x] About us page
 - [x] User profile page
 - [ ] Contact page
+- [ ] Responsive UI
 - [ ] Like, comment on blogs
 - [ ] Add images to posts from local storage
 - [ ] Change profile pic
