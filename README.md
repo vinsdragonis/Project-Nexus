@@ -21,7 +21,7 @@
 
 ### Additional features:
 
-- [x] Loaders
+- [x] Loadering screen
 - [x] About us page
 - [x] User profile page
 - [ ] Contact page
@@ -31,7 +31,7 @@
 - [ ] Change profile pic
 
 ### Status:
-- [x] Specifications
+- [x] System Software Requirements
 - [x] Development
 - [x] Deployment
 - [x] Testing
