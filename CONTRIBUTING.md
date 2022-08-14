@@ -3,6 +3,7 @@ Firstly, thank you for taking your time to contribute to Project Nexus. There ar
 
 ### Anyone who wishes to contribute to Project Nexus is expected to:
 - Read the <a href="https://github.com/vinsdragonis/Project-Nexus/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> to ensure a safe, healthy, welcoming and respectful communnity.
+- <a href="https://github.com/vinsdragonis/Project-Nexus/fork">Create a fork</a> of the repository, and make changes on a new branch.
 
 ### Ways to contribute:
 You can contribute to Project Nexus in the following ways:
@@ -15,14 +16,13 @@ You can contribute to Project Nexus in the following ways:
 Some guidelines to be followed before making pull requests are:
 - Check if the feature / idea proposed already exists, or is being worked on.
 - Report any bugs on the <a href="https://github.com/vinsdragonis/Project-Nexus/issues">issues</a> section adding the label `bug` to it.
-- All PRs made must strictly be in the recommended markdown format mentioned below.
+- All PRs made are recommended to follow example markdown format mentioned below.
 - A detailed high-level review on all modified files is recommended.
 - Link the pull request made to the corresponding issue.
 
 ### Markdown template for pull requests:
     # Abstract of the pull request?
     # Bugs resolved
-    # Corresponding issue
     # Summary of changes
     # Authors
 
