@@ -4,11 +4,12 @@ import './pagination.css';
 const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
 
   const pageNumber = [];
-  // const [isActive, setIsActive] = useState(false);
+  const [isActive, setIsActive] = useState(null);
+
 
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumber.push(i);
-  }
+  };
 
   return (
     <nav className='pagination'>
@@ -18,8 +19,10 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
             <a
               onClick={(e) => {
                 paginate(num);
+                setIsActive(num);
                 e.preventDefault();
               }}
+              className={isActive === num ? "active" : ""}
               href='!#'>
               {num}
             </a>

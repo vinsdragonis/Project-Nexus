@@ -19,6 +19,7 @@
   font-weight: bold;
   margin: 5px;
   color: #444;
+  transition: .4s ease;
 }
 .pagination ul li a:hover {
   color: #fff;
@@ -26,7 +27,7 @@
   border: 2px solid rgb(255, 255, 255);
 }
 .active {
-  color: #fff;
+  color: #fff!important;
   background: #444;
   border: 2px solid rgb(255, 255, 255);
 }

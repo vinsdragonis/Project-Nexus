@@ -5,6 +5,7 @@ import { useLocation } from "react-router";
 import SyncLoader from "react-spinners/SyncLoader";
 import axios from "axios";
 import Posts from "../../components/posts/Posts";
+import FeaturePosts from "../../components/featurePosts/FeaturePosts";
 import Pagination from "../../components/pagination/Pagination";
 import "./profile.css";
 
@@ -172,11 +173,12 @@ export default function Profile() {
 									postsPerPage={postsPerPage}
 									totalPosts={posts.length}
 									paginate={paginate}
+									currentPosts={currentPosts}
 								/>
 							</div>
 							<div className="feature-posts">
 								<h2>Featured Posts</h2>
-            		<Posts posts={posts} />
+            		<FeaturePosts posts={posts} />
 							</div>
           </div>
         </div>
