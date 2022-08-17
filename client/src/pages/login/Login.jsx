@@ -73,11 +73,7 @@ export default function Login() {
                                 Login
                             </button>
                         </form>
-                        {/* <button className="loginRegisterButton">
-                            <Link className="link" to="/register">
-                                Register
-                            </Link>
-                        </button> */}
+                        
                         {
                             error &&
                             <span style={{ color:"red", marginTop:"10px" }}>Something went wrong!</span>
