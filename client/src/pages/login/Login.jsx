@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import SyncLoader from "react-spinners/SyncLoader";
 import './login.css';
@@ -73,11 +73,11 @@ export default function Login() {
                                 Login
                             </button>
                         </form>
-                        <button className="loginRegisterButton">
+                        {/* <button className="loginRegisterButton">
                             <Link className="link" to="/register">
                                 Register
                             </Link>
-                        </button>
+                        </button> */}
                         {
                             error &&
                             <span style={{ color:"red", marginTop:"10px" }}>Something went wrong!</span>
