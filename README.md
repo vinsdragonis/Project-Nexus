@@ -21,7 +21,7 @@
 
 ### Additional features:
 
-- [x] Loadering screen
+- [x] Loading screen
 - [x] About us page
 - [x] User profile page
 - [ ] Contact page
