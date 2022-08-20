@@ -12,21 +12,6 @@
 }
 
 @media (max-width: 768px) {
-    .app {
-        display: inline-block;
-        width: 160vh;
-    }
-
-    .header {
-        display: inline-block;
-        width: 160vh;
-    }
-
-    .topbar {
-        display: inline-block;
-        width: 160vh;
-    }
-
     .sidebar {
         display: none;
     }

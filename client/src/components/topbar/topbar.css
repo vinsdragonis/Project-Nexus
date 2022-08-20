@@ -1,4 +1,4 @@
-.top {
+.menu-wrapper {
     width: 100%;
     height: 55px;
     background-color: white;
@@ -64,8 +64,79 @@
 }
 
 @media (max-width: 768px) {
+    .mobile-hamburger{
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        width: max-content;
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
+    .mobile-hamburger div{
+        width: 30px;
+        height: 4px;
+        background: #000;
+    }
+
     .top {
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .topLeft, .topRight, .topCenter{
+        flex: initial;
+    }
+
+    .menu-wrapper{
+        flex-direction: column;
         width: 100%;
+        max-height: 0px;
+        height: auto;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+        position: absolute;
+        box-sizing: border-box;
+        margin-top: 1rem;
+    }
+
+    .menu-wrapper-open{
+        max-height: 1000px;
+    }
+
+    .close-hamburger{
+        width: max-content;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .close-hamburger div{
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: #000;
+        transform: rotateZ(45deg);
+    }
+
+    .close-hamburger div:last-of-type{
+        transform: rotateZ(-45deg);
+    }
+
+    .topList{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-top: 1rem;
+        line-height: 1.4;
+    }
+
+    .topbar {
+        display: inline-block;
+        width: 160vh;
     }
 
     .topListItem {
