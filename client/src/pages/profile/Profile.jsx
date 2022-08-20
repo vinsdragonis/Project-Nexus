@@ -1,17 +1,14 @@
 import { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
-import { useLocation } from "react-router";
 import SyncLoader from "react-spinners/SyncLoader";
 import axios from "axios";
 import Posts from "../../components/posts/Posts";
-import FeaturePosts from "../../components/featurePosts/FeaturePosts";
 import Pagination from "../../components/pagination/Pagination";
 import "./profile.css";
 
 export default function Profile() {
   const { user } = useContext(Context);
-  const { search } = useLocation();
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -19,33 +16,90 @@ export default function Profile() {
 
   useEffect(() => {
     setLoading(true);
-    const fetchPosts = async () => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+    
+  useEffect(() => {
+    setLoading(true);
+    const fetchPosts = async () => {      
       const res = await axios.get(
-        "https://shrouded-basin-56205.herokuapp.com/api/posts" + search,
-        { mode: "cors" }
+        "https://shrouded-basin-56205.herokuapp.com/api/posts",
+        {
+          mode: "cors"
+        }
       );
       setLoading(false);
       setPosts(res.data);
     };
 
     fetchPosts();
-  }, [search]);
+  }, []);
 
-  useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-	}, []);
+  // Return Single users Posts
+  const allUserPosts = posts.map((un) => {
+    if (un.username === user.username) {
+      return ({
+        username: un.username,
+        categories: un.categories,
+        createdAt: un.createdAt,
+        desc: un.desc,
+        photo: un.photo,
+        title: un.title,
+        updatedAt: un.updatedAt,
+        __v: un.__v,
+        _id: un._id,
+      });
+    }
+    return null;
+  });
+  
+  const OnlyUserPosts = allUserPosts;
+  const filteredUserPosts = OnlyUserPosts.filter(function (x) {
+    return x !== null || undefined;
+  });
+  // console.log(filteredPosts);
+
+  // Return All Posts except current users posts
+  const allPosts = posts.map((ap) => {
+    if (ap.username !== user.username) {
+      return ({
+        username: ap.username,
+        categories: ap.categories,
+        createdAt: ap.createdAt,
+        desc: ap.desc,
+        photo: ap.photo,
+        title: ap.title,
+        updatedAt: ap.updatedAt,
+        __v: ap.__v,
+        _id: ap._id,
+      });
+    }
+    return null;
+  });
+  
+  const userPosts = allPosts;
+  const filteredPosts = userPosts.filter(function (x) {
+    return x !== null || undefined;
+  });
+  console.log(filteredPosts);
+
+  // TODO: refactor to use single endpoint "posts" for pagination
+	// Get current posts
+	const indexOfLastUserPost = currentPage * postsPerPage;
+	const indexOfFirstUserPost = indexOfLastUserPost - postsPerPage;
+	const currentUserPosts = filteredUserPosts.slice(indexOfFirstUserPost, indexOfLastUserPost);
+	// Change page(Pagination)
+  const userPaginate = (pageNumber) => setCurrentPage(pageNumber);
 
 	// Get current posts
 	const indexOfLastPost = currentPage * postsPerPage;
 	const indexOfFirstPost = indexOfLastPost - postsPerPage;
-	const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
-
-	// Change page
-	const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
+	const currentPosts = filteredPosts.slice(indexOfFirstPost, indexOfLastPost);
+	// Change page(Pagination)
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+	
   return (
     <>
       {loading ? (
@@ -60,66 +114,6 @@ export default function Profile() {
       ) : (
         <div className="profile">
           {user && (
-            // <div className="profileWrapper">
-            //     <div className="profileContainer">
-            //         <div className="profileDetails glow-on-hover">
-            //             <h1 className="profileTitle">MY PROFILE</h1>
-            //             <div className="profileImgContainer" style={{ paddingBottom: '20px' }}>
-            //                 <img
-            //                     src={ user.profilePic }
-            //                     alt=""
-            //                 />
-            //             </div>
-            //             <ul className="user-profile" style={{ listStyleType: 'none' }}>
-            //                 <li>
-            //                     <p className="userProfileDetails">
-            //                         <strong>Full name:</strong>
-            //                         <span>
-            //                             { user.fullname }
-            //                         </span>
-            //                     </p>
-            //                 </li>
-            //                 <li>
-            //                     <p className="userProfileDetails">
-            //                         <strong>Username:</strong>
-            //                         <Link className="link" to={`/?user=${user.username}`}>
-            //                             <span>
-            //                                 { user.username }
-            //                             </span>
-            //                         </Link>
-            //                     </p>
-            //                 </li>
-            //                 <li>
-            //                     <p className="userProfileDetails">
-            //                         <strong>Email:</strong>
-            //                         <span>
-            //                             { user.email }
-            //                         </span>
-            //                     </p>
-            //                 </li>
-            //                 <li>
-            //                     <p className="userProfileDetails">
-            //                         <strong>Joined on:</strong>
-            //                         <span>
-            //                             { new Date(user.createdAt).toDateString() }
-            //                         </span>
-            //                     </p>
-            //                 </li>
-            //                 {
-            //                     user.desc &&
-            //                     <li>
-            //                         <p className="userProfileDetails">
-            //                             <strong>Bio:</strong>
-            //                             <span>
-            //                                 { user.desc }
-            //                             </span>
-            //                         </p>
-            //                     </li>
-            //                 }
-            //             </ul>
-            //         </div>
-            //     </div>
-            // </div>
             <div className="prof-container">
               <div className="prof-hero">
                 <img
@@ -167,18 +161,24 @@ export default function Profile() {
           )}
 						<div className="prof-feat-container">
 							<div className="prof-posts">
-								<h2>{ user.username}'s Posts</h2>
-								<Posts posts={currentPosts} />
+                <h2>{user.username}'s Posts</h2>
+								<Posts posts={currentUserPosts} />
 								<Pagination
 									postsPerPage={postsPerPage}
-									totalPosts={posts.length}
-									paginate={paginate}
-									currentPosts={currentPosts}
+									totalPosts={filteredPosts.length}
+									paginate={userPaginate}
+									currentPosts={currentUserPosts}
 								/>
 							</div>
 							<div className="feature-posts">
 								<h2>Featured Posts</h2>
-            		<FeaturePosts posts={posts} />
+								<Posts posts={currentPosts} />
+								<Pagination
+									postsPerPage={postsPerPage}
+									totalPosts={filteredPosts.length}
+									paginate={paginate}
+									currentPosts={currentPosts}
+								/>
 							</div>
           </div>
         </div>
