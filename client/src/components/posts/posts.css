@@ -4,3 +4,24 @@
     flex-wrap: wrap;
     margin: 20px;
 }
+
+@media (max-width: 768px) {
+    .posts{
+        flex: initial;
+        max-width: calc(100% - 2rem);
+        flex-wrap: wrap;
+        gap: 1rem;
+        flex-direction: row;
+    }
+
+    .post{
+        max-width: calc(100% - 1rem);
+        width: max-content;
+        overflow: hidden;
+        margin: 0 0 0 0;
+    }
+
+    .postImg{
+        max-width: 100%;
+    }
+}
