@@ -165,7 +165,7 @@ export default function Profile() {
 								<Posts posts={currentUserPosts} />
 								<Pagination
 									postsPerPage={postsPerPage}
-									totalPosts={filteredPosts.length}
+									totalPosts={filteredUserPosts.length}
 									paginate={userPaginate}
 									currentPosts={currentUserPosts}
 								/>
