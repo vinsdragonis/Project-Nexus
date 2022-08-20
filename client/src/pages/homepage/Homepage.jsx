@@ -38,7 +38,7 @@ export default function Homepage() {
                     </div>
                 ) : (
                     <>
-                        <Header />
+                        {/* <Header /> */}
                         <div className="home">
                             <Categories />
                             <Posts posts={ posts } />
