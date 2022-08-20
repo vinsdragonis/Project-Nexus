@@ -5,6 +5,27 @@
     margin: 20px;
 }
 
+.postsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.loadMore {
+    text-align: center;
+    margin: 8px 0;
+}
+
+.loadMoreBtn {
+    font-family: "Varela Round", Arial, Helvetica, sans-serif;
+    border: 1px solid #444;
+    background-color: #444;
+    padding: 8px 16px;
+    font-size: 12px;
+    border-radius: 4px;
+    color: white;
+    transition: .3s ease-out;
+}
+
 @media (max-width: 768px) {
     .posts{
         flex: initial;
