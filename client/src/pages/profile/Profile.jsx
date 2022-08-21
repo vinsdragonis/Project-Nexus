@@ -16,7 +16,7 @@ export default function Profile() {
   const [userPostsPerPage] = useState(3);
   const [postsPerPage] = useState(3);
 
-  console.log(user);
+//   console.log(user);
 
   useEffect(() => {
     setLoading(true);
