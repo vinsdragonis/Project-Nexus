@@ -178,7 +178,15 @@
   .userProfileDetails span::before {
     content: " ";
   }
+    .settingsButton {
+        width: 20.5%;
+        margin-bottom: 10px;
+    }
 } */
+    .settingsButton {
+        width: 20.5%;
+        margin-bottom: 10px;
+    }
 
 /* New  ------------------------ */
 .profile{
