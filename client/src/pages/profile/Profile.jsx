@@ -87,7 +87,7 @@ export default function Profile() {
   const filteredPosts = userPosts.filter(function (x) {
     return x !== null || undefined;
   });
-  console.log(filteredPosts);
+//   console.log(filteredPosts);
 
   // TODO: refactor to use single endpoint "posts" for pagination
 	// Get current posts
