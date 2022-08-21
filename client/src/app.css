@@ -1,33 +1,36 @@
 .app {
-    width: auto;
+  width: auto;
 }
 
 .loader {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 }
 
 @media (max-width: 768px) {
-    .app {
-        display: inline-block;
-        width: 160vh;
-    }
+  .app {
+    display: inline-block;
+    width: 160vh;
+  }
 
-    .header {
-        display: inline-block;
-        width: 160vh;
-    }
+  .header {
+    display: inline-block;
+    width: 160vh;
+  }
 
-    .topbar {
-        display: inline-block;
-        width: 160vh;
-    }
+  .topbar {
+    display: inline-block;
+    width: 160vh;
+  }
 
-    .sidebar {
-        display: none;
-    }
+  .sidebar {
+    display: none;
+  }
+  .BOBS-YOUR-UNCLE {
+    display: none !important;
+  }
 }
