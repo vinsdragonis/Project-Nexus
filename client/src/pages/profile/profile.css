@@ -181,6 +181,9 @@
 } */
 
 /* New  ------------------------ */
+.profile{
+  font-family: "Josefin Sans", sans-serif;
+}
 .prof-hero img {
   width: 100%;
   max-height: 300px;

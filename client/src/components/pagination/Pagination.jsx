@@ -6,7 +6,6 @@ const Pagination = ({ postsPerPage, totalPosts, paginate }) => {
   const pageNumber = [];
   const [isActive, setIsActive] = useState(null);
 
-
   for (let i = 1; i <= Math.ceil(totalPosts / postsPerPage); i++) {
     pageNumber.push(i);
   };

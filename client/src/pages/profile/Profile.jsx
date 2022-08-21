@@ -12,7 +12,11 @@ export default function Profile() {
   const [loading, setLoading] = useState(false);
   const [posts, setPosts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentUserPage, setUserCurrentPage] = useState(1);
+  const [userPostsPerPage] = useState(3);
   const [postsPerPage] = useState(3);
+
+  console.log(user);
 
   useEffect(() => {
     setLoading(true);
@@ -87,11 +91,11 @@ export default function Profile() {
 
   // TODO: refactor to use single endpoint "posts" for pagination
 	// Get current posts
-	const indexOfLastUserPost = currentPage * postsPerPage;
-	const indexOfFirstUserPost = indexOfLastUserPost - postsPerPage;
+	const indexOfLastUserPost = currentUserPage * userPostsPerPage;
+	const indexOfFirstUserPost = indexOfLastUserPost - userPostsPerPage;
 	const currentUserPosts = filteredUserPosts.slice(indexOfFirstUserPost, indexOfLastUserPost);
 	// Change page(Pagination)
-  const userPaginate = (pageNumber) => setCurrentPage(pageNumber);
+  const userPaginate = (pageNumber) => setUserCurrentPage(pageNumber);
 
 	// Get current posts
 	const indexOfLastPost = currentPage * postsPerPage;
@@ -118,7 +122,7 @@ export default function Profile() {
               <div className="prof-hero">
                 <img
                   src="https://source.unsplash.com/phIFdC6lA4E/"
-                  alt=""
+                  alt={user.categories}
                 />
               </div>
 
@@ -161,15 +165,17 @@ export default function Profile() {
           )}
 						<div className="prof-feat-container">
 							<div className="prof-posts">
-                <h2>{user.username}'s Posts</h2>
+                <h2>My Posts</h2>
+                {/* <h2>{user.username}'s Posts</h2> */}
 								<Posts posts={currentUserPosts} />
 								<Pagination
-									postsPerPage={postsPerPage}
-									totalPosts={filteredPosts.length}
+									postsPerPage={userPostsPerPage}
+									totalPosts={filteredUserPosts.length}
 									paginate={userPaginate}
 									currentPosts={currentUserPosts}
 								/>
-							</div>
+              </div>
+              {/* TODO: Create feature Posts card UI to include(featured) username and profile picture */}
 							<div className="feature-posts">
 								<h2>Featured Posts</h2>
 								<Posts posts={currentPosts} />
