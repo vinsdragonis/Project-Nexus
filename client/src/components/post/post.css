@@ -74,4 +74,8 @@
     .postDesc, .postDate, .postInfo {
         font-size: 1.15em;
     }
+    
+    .postDesc {
+        width: 300px;
+    }
 }
