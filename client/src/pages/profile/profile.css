@@ -230,11 +230,16 @@
   /* background-color: #00aad5; */
 }
 .prof-username,
-.prof-meta span {
+.prof-meta .prof-meta-title {
   color: rgb(154, 154, 154);
   letter-spacing: 3px;
 	font-size: 16px;
 }
+
+.prof-meta-value{
+  display: block;
+}
+
 .prof-bio {
   margin: 1rem 0 2rem 0;
   color: rgb(68, 68, 68);
@@ -291,17 +296,13 @@
   background-color: #ebe4e4;
 }
 
+
 /* Mobile */
-/* @media (max-width: 390px) {
-  .prof-hero img {
-    max-height: 200px;
+@media (max-width: 768px) {
+  .prof-cta, .prof-meta{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1.4rem;
   }
-	.prof-feat-container{
-		width: 300px!important;
-		background-color: #002bff;
-	}
-	.prof-detail-main h1,
-	.prof-feat-container h2 {
-  font-size: 1.5rem;
 }
-} */

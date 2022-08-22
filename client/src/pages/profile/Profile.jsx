@@ -143,9 +143,9 @@ export default function Profile() {
                 <div className="prof-detail-sub">
 										<div className="prof-cta">
 											<div className="prof-meta">
-												<h3><span>Username: </span>{ user.username }</h3>
-												<h3><span>Email: </span>{ user.email }</h3>
-												<h3><span>Joined on: </span>{ new Date(user.createdAt).toDateString() }</h3>
+												<h3><span className="prof-meta-title">Username: </span><span className="prof-meta-value">{ user.username }</span></h3>
+												<h3><span className="prof-meta-title">Email: </span><span className="prof-meta-value">{ user.email }</span></h3>
+												<h3><span className="prof-meta-title">Joined on: </span><span className="prof-meta-value">{ new Date(user.createdAt).toDateString() }</span></h3>
 											</div>
                     {user && (
                       <div className="prof-btn-container">
