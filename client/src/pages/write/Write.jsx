@@ -8,6 +8,7 @@ export default function Write() {
     const [loading, setLoading] = useState(false);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
+    const [categoriesString, setCategoriesString] = useState("");
     const [categories, setCategories] = useState([]);
     const [photo, setPhoto] = useState("");
     const { user } = useContext(Context);
@@ -38,6 +39,12 @@ export default function Write() {
             window.location.replace("/post/" + res.data._id);
         } catch (err) {}
     };
+
+    useEffect(() => {
+        setCategories(categoriesString.split(',').map((ele) => {
+            return ele.trim();
+        }))
+    },[categoriesString])
 
     useEffect(() => {
         setLoading(true);
@@ -91,10 +98,10 @@ export default function Write() {
                                 />
                                 <input
                                     className="writeInput"
-                                    placeholder="Category"
+                                    placeholder="Enter catogories sparated by ','"
                                     type="text"
                                     autoFocus={ true }
-                                    onChange={ e=> setCategories(e.target.value) }
+                                    onChange={ e=> setCategoriesString(e.target.value) }
                                 />
                             </div>
                             <div className="writeFormGroup">
