@@ -98,7 +98,7 @@ export default function Write() {
                                 />
                                 <input
                                     className="writeInput"
-                                    placeholder="Enter catogories sparated by ','"
+                                    placeholder="Catogories sparated by ','"
                                     type="text"
                                     autoFocus={ true }
                                     onChange={ e=> setCategoriesString(e.target.value) }
