@@ -20,40 +20,40 @@ import axios from 'axios';
 
 function App() {
   const { user } = useContext(Context);
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [query, setQuery] = useState("");
-    const [list, setList] = useState(true);
-    const keys = ["username", "title", "desc"];
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [query, setQuery] = useState("");
+  const [list, setList] = useState(true);
+  const keys = ["username", "title", "desc"];
 
-    useEffect(() => {
-        setLoading(true);
-        const fetchPosts = async () => {
-            const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts", {mode: 'cors'});
-            setLoading(false);
-            setPosts(res.data);
-        };
-        
-        fetchPosts();
-    }, []);
+  useEffect(() => {
+      setLoading(true);
+      const fetchPosts = async () => {
+          const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts", {mode: 'cors'});
+          setLoading(false);
+          setPosts(res.data);
+      };
+      
+      fetchPosts();
+  }, []);
 
-    const searchs = (posts) => {
-        return posts.filter((item) =>
-        keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
-        || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
-        );
-    };
+  const searchs = (posts) => {
+      return posts.filter((item) =>
+      keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
+      || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
+      );
+  };
 
-    const p = searchs(posts);
+  const p = searchs(posts);
 
-    useEffect(() => {
-        if (p.length === 0) {
-            setList(false);
-        }
-        if (p.length) {
-            setList(true);
-        }
-    }, [p.length]);
+  useEffect(() => {
+      if (p.length === 0) {
+          setList(false);
+      }
+      if (p.length) {
+          setList(true);
+      }
+  }, [p.length]);
 
 
   return (
