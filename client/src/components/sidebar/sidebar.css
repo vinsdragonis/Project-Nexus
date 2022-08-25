@@ -1,5 +1,6 @@
 .sidebar {
-  flex: 3;
+  /* flex: 3; */
+  width: 20vw;
   height: fit-content;
   margin: 20px;
   padding-bottom: 30px;
@@ -40,6 +41,9 @@
   padding: 30px;
   align-items: center;
   display: inline;
+}
+.user-profile{
+  padding: 10px 20px;
 }
 
 .sidebarItem > p {

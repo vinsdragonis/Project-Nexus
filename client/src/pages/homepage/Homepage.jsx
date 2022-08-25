@@ -1,28 +1,24 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
-import axios from "axios";
 import Header from '../../components/header/Header';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Categories from '../../components/categories/Categories';
-import Posts from '../../components/posts/Posts';
+import SearchPosts from '../../components/searchbar/SearchPosts';
 import SyncLoader from "react-spinners/SyncLoader";
 import './homepage.css';
+import Posts from "../../components/posts/Posts";
 
-export default function Homepage() {    
-    const [posts, setPosts] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const { search } = useLocation();
+export default function Homepage({p, setQuery, list, loading}) {    
 
-    useEffect(() => {
-        setLoading(true);
-        const fetchPosts = async () => {
-            const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts" + search, {mode: 'cors'});
-            setLoading(false);
-            setPosts(res.data);
-        };
-        
-        fetchPosts();
-    }, [search]);
+const [width, setWidth] = useState(window.innerWidth);
+const breakpoint = 768;
+    
+  useEffect(() => {
+   const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handleResizeWindow);
+    return () => {
+      window.removeEventListener("resize", handleResizeWindow);
+    };
+  }, []);
 
     return (
         <>
@@ -41,7 +37,10 @@ export default function Homepage() {
                         <Header />
                         <div className="home">
                             <Categories />
-                            <Posts posts={ posts } />
+                            <div className="main-content">
+                                {width > breakpoint ? <SearchPosts setQuery={setQuery} /> : <div></div>}
+                                 { list ? <Posts posts={ p } /> : <div className="postless">No Posts Found :(</div> }
+                            </div>
                             <Sidebar />
                         </div>
                     </>

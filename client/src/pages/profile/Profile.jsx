@@ -16,8 +16,6 @@ export default function Profile() {
   const [userPostsPerPage] = useState(3);
   const [postsPerPage] = useState(3);
 
-//   console.log(user);
-
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -63,9 +61,8 @@ export default function Profile() {
   const filteredUserPosts = OnlyUserPosts.filter(function (x) {
     return x !== null || undefined;
   });
-  // console.log(filteredPosts);
 
-  // Return All Posts except current users posts
+  // Return All Posts, omit current users posts
   const allPosts = posts.map((ap) => {
     if (ap.username !== user.username) {
       return ({
@@ -87,7 +84,6 @@ export default function Profile() {
   const filteredPosts = userPosts.filter(function (x) {
     return x !== null || undefined;
   });
-//   console.log(filteredPosts);
 
   // TODO: refactor to use single endpoint "posts" for pagination
 	// Get current posts

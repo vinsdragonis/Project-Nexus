@@ -1,5 +1,6 @@
 .catBar {
-  flex: 1;
+  /* flex: 1; */
+  width: 15vw;
   height: fit-content;
   margin: 20px;
   padding-bottom: 30px;
