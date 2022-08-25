@@ -80,7 +80,10 @@
     }
 
     .top {
-        flex-direction: column;
+        /* flex-direction: column; */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         height: auto;
         overflow: hidden;
     }
