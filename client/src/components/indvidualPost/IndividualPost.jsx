@@ -22,17 +22,31 @@ export default function IndividualPost() {
             const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts/" + path);
             setLoading(false);
             setPost(res.data);
-            setPost(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
         };
         getPost();
     }, [path]);
 
+    const handleUpvote = async () => {
+        const newVote = {
+            post: post._id,
+            user: user._id,
+            type: true
+        };
+        try{
+            const res = await axios.post(process.env.REACT_APP_BASE_URL+`/api/posts/upvote`, newVote);
+            
+        } catch (err){
+            console.log(err);
+        }
+        console.log('You Upvoted '+post.title);
+    }
+
     const handleDelete = async () => {
         try {
         await axios.delete(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
-            data: { username: user.username },
+            data: { user: user._id },
         });
         window.location.replace("/");
         } catch (err) {}
@@ -41,7 +55,7 @@ export default function IndividualPost() {
     const handleUpdate = async () => {
         try {
             await axios.put(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
-                username: user.username,
+                user: user._id,
                 title,
                 desc,
             });
@@ -100,10 +114,10 @@ export default function IndividualPost() {
                                 <span>
                                     Author:
                                     <b className="indPostAuthor">
-                                        <Link className="link" to={`/?user=${post.username}`}>
-                                            { post.username }
+                                        <Link className="link" to={`/?user=${post.user?post.user._id:""}`}>
+                                            { post.user?post.user.fullname:"" }
                                         </Link>
-                                    </b>
+                                    </b> | <button onClick={handleUpvote}>Upvote</button> | {post.votes?post.votes.length +" Votes":""}
                                 </span>
                                 <span>{ new Date(post.createdAt).toDateString() }</span>
                             </div>

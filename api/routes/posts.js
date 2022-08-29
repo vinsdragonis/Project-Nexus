@@ -1,7 +1,7 @@
 const router = require("express").Router();
-const User = require("../models/User");
 const Post = require("../models/Post");
-const ProfilePage = require("../models/ProfilePage")
+const User = require("../models/User");
+const Vote = require("../models/Vote");
 
 // CREATE POST
 router.post("/", async (req, res) => {
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 // UPDATE POST
 router.put("/:id", async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id).populate('user');
         if (post.username === req.body.username) {
             try {
                 const updatedPost = await Post.findByIdAndUpdate(
@@ -44,7 +44,7 @@ router.put("/:id", async (req, res) => {
 // DELETE POST
 router.delete("/:id", async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id).populate('user');
         if (post.username === req.body.username) {
             try {
                 await post.delete();
@@ -63,7 +63,7 @@ router.delete("/:id", async (req, res) => {
 // GET POST
 router.get("/:id", async (req, res) => {
     try {
-        const post = await Post.findById(req.params.id);
+        const post = await Post.findById(req.params.id).populate(['user', 'votes']);
         res.status(200).json(post);
     } catch (err) {
         res.status(500).json(err);
@@ -79,15 +79,15 @@ router.get("/", async (req, res) => {
         let posts;
         
         if (username) {
-            posts = await Post.find({ username });
+            posts = await Post.find({ username }).populate('user');
         } else if (catName) {
             posts = await Post.find({
                 categories: {
                     $in: [catName],
                 },
-            });
+            }).populate('user');
         } else {
-            posts = await Post.find();
+            posts = await Post.find().populate('user');
         }
 
         res.status(200).json(posts);
@@ -95,5 +95,14 @@ router.get("/", async (req, res) => {
         res.status(500).json(err);
     }
 });
+
+// UPVOTE A POST
+router.post("/upvote", async (req, res) => {
+    console.log(req.body);
+    let newVote = new Vote(req.body);
+    await newVote.save();
+    const thePost = await Post.findOneAndUpdate({_id: req.body.post}, {$push: {votes: newVote}});
+    res.status(200).json(newVote);
+})
 
 module.exports = router;

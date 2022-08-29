@@ -31,11 +31,11 @@ const UserSchema = new mongoose.Schema(
         },
         posts: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: Post
+            ref: 'Post'
         }],
         votes: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: Vote
+            ref: 'Vote'
         }]
     },
     {

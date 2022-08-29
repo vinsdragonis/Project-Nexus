@@ -19,7 +19,7 @@ const PostSchema = new mongoose.Schema(
         },
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: User,
+            ref: 'User',
             required: true,
         },
         categories: {
@@ -28,7 +28,7 @@ const PostSchema = new mongoose.Schema(
         },
         votes: [{
             type: mongoose.Schema.Types.ObjectId,
-            ref: Vote
+            ref: 'Vote'
         }]
     },
     {

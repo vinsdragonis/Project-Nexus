@@ -23,6 +23,7 @@ export default function Post({ post }) {
                 <Link className="link" to={`/post/${ post._id }`}>
                     { post.title }
                 </Link>
+                <button type="button">Upvote</button>
             </span>
             <hr />
             <span className="postDate">{ new Date(post.createdAt).toDateString() }</span>
