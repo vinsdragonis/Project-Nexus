@@ -30,6 +30,7 @@ function App() {
       setLoading(true);
       const fetchPosts = async () => {
           const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts", {mode: 'cors'});
+          console.log(res);
           setLoading(false);
           setPosts(res.data);
       };
