@@ -27,7 +27,7 @@ export default function Profile() {
     setLoading(true);
     const fetchPosts = async () => {      
       const res = await axios.get(
-        "https://shrouded-basin-56205.herokuapp.com/api/posts",
+        process.env.REACT_APP_BASE_URL+"/api/posts",
         {
           mode: "cors"
         }

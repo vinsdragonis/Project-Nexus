@@ -29,21 +29,22 @@ function App() {
   useEffect(() => {
       setLoading(true);
       const fetchPosts = async () => {
-          const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts", {mode: 'cors'});
+          const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts", {mode: 'cors'});
           setLoading(false);
           setPosts(res.data);
       };
+      // console.log(process.env.REACT_APP_BASE_URL);
       
       fetchPosts();
   }, []);
 
   const searchs = (posts) => {
-      return posts.filter((item) =>
-      keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
-      || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
-      );
+    return posts.filter((item) =>
+    keys.some(key => item.title.toLowerCase().includes(query.toLowerCase()))
+    || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
+    );
   };
-
+  
   const p = searchs(posts);
 
   useEffect(() => {

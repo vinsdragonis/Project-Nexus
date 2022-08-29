@@ -9,7 +9,7 @@ export default function Categories() {
     useEffect(() => {
         let isMounted = true; 
         const getCats = async () => {
-            const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/categories");
+            const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/categories");
             if (isMounted) setCats(res.data);
         };
         

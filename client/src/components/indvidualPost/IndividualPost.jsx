@@ -19,7 +19,7 @@ export default function IndividualPost() {
     useEffect(() => {
         setLoading(true);
         const getPost = async () => {
-            const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts/" + path);
+            const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts/" + path);
             setLoading(false);
             setPost(res.data);
             setPost(res.data);
@@ -31,7 +31,7 @@ export default function IndividualPost() {
 
     const handleDelete = async () => {
         try {
-        await axios.delete(`https://shrouded-basin-56205.herokuapp.com/api/posts/${post._id}`, {
+        await axios.delete(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
             data: { username: user.username },
         });
         window.location.replace("/");
@@ -40,7 +40,7 @@ export default function IndividualPost() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`https://shrouded-basin-56205.herokuapp.com/api/posts/${post._id}`, {
+            await axios.put(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc,

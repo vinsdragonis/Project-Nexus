@@ -18,7 +18,7 @@ export default function Login() {
         dispatch({ type: "LOGIN_START" });
 
         try {
-            const res = await axios.post("https://shrouded-basin-56205.herokuapp.com/api/auth/login", {
+            const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/auth/login", {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             });
