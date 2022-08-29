@@ -24,12 +24,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [list, setList] = useState(true);
-  const keys = ["username", "title", "desc"];
+  const keys = ["title", "desc"];
 
   useEffect(() => {
       setLoading(true);
       const fetchPosts = async () => {
-          const res = await axios.get("https://shrouded-basin-56205.herokuapp.com/api/posts", {mode: 'cors'});
+          const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts", {mode: 'cors'});
           setLoading(false);
           setPosts(res.data);
       };
@@ -38,12 +38,12 @@ function App() {
   }, []);
 
   const searchs = (posts) => {
-      return posts.filter((item) =>
-      keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
-      || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
-      );
+    return posts.filter((item) =>
+    keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
+    || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
+    );
   };
-
+  
   const p = searchs(posts);
 
   useEffect(() => {

@@ -17,7 +17,7 @@ export default function Register() {
         setError(false);
         
         try {
-            const res = await axios.post("https://shrouded-basin-56205.herokuapp.com/api/auth/register", {
+            const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/auth/register", {
                 fullname,
                 username,
                 email,

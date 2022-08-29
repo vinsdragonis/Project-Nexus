@@ -30,12 +30,12 @@ export default function Write() {
         //     data.append("photo", photo);
         //     newPost.photo = filename;
         //     try {
-        //         await axios.post("https://shrouded-basin-56205.herokuapp.com/api/upload", data);
+        //         await axios.post(process.env.REACT_APP_BASE_URL+"/api/upload", data);
         //     } catch (err) {}
         // }
 
         try {
-            const res = await axios.post("https://shrouded-basin-56205.herokuapp.com/api/posts", newPost);
+            const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/posts", newPost);
             window.location.replace("/post/" + res.data._id);
         } catch (err) {}
     };
