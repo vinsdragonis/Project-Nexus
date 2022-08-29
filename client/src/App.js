@@ -25,12 +25,11 @@ function App() {
   const [query, setQuery] = useState("");
   const [list, setList] = useState(true);
   const keys = ["username", "title", "desc"];
-  const BASE_URL = process.env.REACT_APP_BASE_URL;
 
   useEffect(() => {
       setLoading(true);
       const fetchPosts = async () => {
-          const res = await axios.get(BASE_URL+"/api/posts", {mode: 'cors'});
+          const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts", {mode: 'cors'});
           setLoading(false);
           setPosts(res.data);
       };
