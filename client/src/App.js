@@ -33,10 +33,11 @@ function App() {
           setLoading(false);
           setPosts(res.data);
       };
-      // console.log(process.env.REACT_APP_BASE_URL);
       
       fetchPosts();
   }, []);
+
+  console.log(posts);
 
   const searchs = (posts) => {
     return posts.filter((item) =>
