@@ -24,7 +24,7 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState("");
   const [list, setList] = useState(true);
-  const keys = ["username", "title", "desc"];
+  const keys = ["title", "desc"];
 
   useEffect(() => {
       setLoading(true);
@@ -37,11 +37,9 @@ function App() {
       fetchPosts();
   }, []);
 
-  console.log(posts);
-
   const searchs = (posts) => {
     return posts.filter((item) =>
-    keys.some(key => item.title.toLowerCase().includes(query.toLowerCase()))
+    keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
     || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
     );
   };
