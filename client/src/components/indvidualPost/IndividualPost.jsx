@@ -36,11 +36,9 @@ export default function IndividualPost() {
         };
         try{
             const res = await axios.post(process.env.REACT_APP_BASE_URL+`/api/posts/upvote`, newVote);
-            
         } catch (err){
-            console.log(err);
+            // console.log(err);
         }
-        console.log('You Upvoted '+post.title);
     }
 
     const handleDelete = async () => {
