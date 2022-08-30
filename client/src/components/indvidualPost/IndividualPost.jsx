@@ -20,8 +20,8 @@ export default function IndividualPost() {
         setLoading(true);
         const getPost = async () => {
             const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts/" + path);
-            setLoading(false);
             setPost(res.data);
+            setLoading(false);
             setTitle(res.data.title);
             setDesc(res.data.desc);
         };
@@ -44,7 +44,7 @@ export default function IndividualPost() {
     const handleDelete = async () => {
         try {
         await axios.delete(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
-            data: { user: user._id },
+            data: { username: user.username },
         });
         window.location.replace("/");
         } catch (err) {}
@@ -94,7 +94,7 @@ export default function IndividualPost() {
                             ) : (
                                 <h1 className="indPostTitle">
                                     { title }
-                                    {post.username === user?.username && (
+                                    {post.user ? post.user._id === user._id && (
                                     <div className="indPostEdit">
                                         <i
                                             className="indPostIcon far fa-edit"
@@ -105,7 +105,7 @@ export default function IndividualPost() {
                                         onClick={handleDelete}
                                         ></i>
                                     </div>
-                                    )}
+                                    ):""}
                                 </h1>
                             )}
                             <div className="indPostInfo">
