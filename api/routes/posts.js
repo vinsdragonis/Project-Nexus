@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
-        let user = await User.findOneAndUpdate({_id: req.body.user}, {$push: {posts: newPost}});
+        let user = await User.findOneAndUpdate({_id: $eq{req.body.user}}, {$push: {posts: newPost}});
         res.status(200).json(savedPost);
     } catch (err) {
         // res.status(500).json(err);
