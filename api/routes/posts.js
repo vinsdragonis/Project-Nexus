@@ -50,7 +50,7 @@ router.delete("/:id", async (req, res) => {
         if (post.user.username === req.body.username) {
             try {
                 await post.delete();
-                await User.findOneAndUpdate({username: req.body.username}, {$pull: {posts: post._id}});
+                await User.findOneAndUpdate({username: $eq{req.body.username}}, {$pull: {posts: post._id}});
                 res.status(200).json("Post has been deleted...");
             } catch (err) {
                 res.status(500).json(err);
@@ -101,7 +101,7 @@ router.get("/", async (req, res) => {
 
 // UPVOTE A POST
 router.post("/upvote", async (req, res) => {
-    let currentVotes = await Post.findById(req.body.post).populate('votes');
+    let currentVotes = await Post.findById($eq{req.body.post}).populate('votes');
     currentVotes = currentVotes.votes;
 
     let alreadyVoted = (vote) => vote.user == req.body.user;
@@ -114,8 +114,8 @@ router.post("/upvote", async (req, res) => {
     }else{
         let newVote = new Vote(req.body);
         await newVote.save();
-        const thePost = await Post.findOneAndUpdate({_id: req.body.post}, {$push: {votes: newVote}});
-        const theUser = await User.findOneAndUpdate({_id: req.body.user}, {$push: {votes: newVote}});
+        const thePost = await Post.findOneAndUpdate({_id: $eq{req.body.post}}, {$push: {votes: newVote}});
+        const theUser = await User.findOneAndUpdate({_id: $eq{req.body.user}}, {$push: {votes: newVote}});
         res.status(200).json(newVote);
     }
 })
