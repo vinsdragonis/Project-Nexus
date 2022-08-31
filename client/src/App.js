@@ -38,10 +38,11 @@ function App() {
   }, []);
 
   const searchs = (posts) => {
-    return posts.filter((item) =>
-    keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
-    || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
-    );
+    // return posts.filter((item) =>
+    // keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
+    // || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
+    // );
+    return posts;
   };
   
   const p = searchs(posts);

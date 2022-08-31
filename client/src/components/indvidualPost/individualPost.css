@@ -76,6 +76,7 @@
 
 .indPostAuthor{
     margin-left: 5px;
+    text-transform: capitalize;
 }
 
 .indPostDesc {

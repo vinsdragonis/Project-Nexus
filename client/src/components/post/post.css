@@ -40,6 +40,9 @@
     font-weight: 900;
     margin-top: 15px;
     cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .postDate {
