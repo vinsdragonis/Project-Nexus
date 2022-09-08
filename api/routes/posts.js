@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
     try {
         const savedPost = await newPost.save();
-        let user = await User.findOneAndUpdate({_id: $eq[req.body.user]}, {$push: {posts: newPost}});
+        let user = await User.findOneAndUpdate({_id: sanitize(req.body.user)}, {$push: {posts: newPost}});
         res.status(200).json(savedPost);
     } catch (err) {
         // res.status(500).json(err);
@@ -51,7 +51,7 @@ router.delete("/:id", async (req, res) => {
         if (post.user.username === req.body.username) {
             try {
                 await post.delete();
-                await User.findOneAndUpdate({username: $eq[req.body.username]}, {$pull: {posts: post._id}});
+                await User.findOneAndUpdate({username: sanitize(req.body.username)}, {$pull: {posts: post._id}});
                 res.status(200).json("Post has been deleted...");
             } catch (err) {
                 res.status(500).json(err);
