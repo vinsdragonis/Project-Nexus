@@ -11,8 +11,13 @@ export default function Login() {
     const { dispatch, isFetching } = useContext(Context);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
+    const [passwordField, setPasswordField] = useState("password");
 
-    const handleSubmit = async (e) => {
+    const handleShowPassword = (e) =>{
+        passwordField === "password" ? setPasswordField("text") : setPasswordField("password");
+    }
+
+    const handleSubmit = async (e) => { 
         e.preventDefault();
         setError(false);
         dispatch({ type: "LOGIN_START" });
@@ -63,12 +68,13 @@ export default function Login() {
                             />
                             <label>Password</label>
                             <input
-                                type="password"
+                                type={passwordField}
                                 className="loginInput"
                                 placeholder="Enter password"
                                 required
                                 ref={ passwordRef }
                             />
+                            <span className="showPasswordToggle" onClick={handleShowPassword} style={{marginLeft:"auto", marginTop:"5px", cursor:"pointer"}}>{passwordField === "password" ? "Show Password" : "Hide Password"}</span>
                             <button className="loginButton" type="submit" disabled={ isFetching }>
                                 Login
                             </button>

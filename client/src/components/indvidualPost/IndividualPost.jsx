@@ -94,7 +94,7 @@ export default function IndividualPost() {
                             ) : (
                                 <h1 className="indPostTitle">
                                     { title }
-                                    {post.user ? post.user._id === user._id && (
+                                    {user && post.user ? post.user._id === user._id && (
                                     <div className="indPostEdit">
                                         <i
                                             className="indPostIcon far fa-edit"
@@ -115,7 +115,7 @@ export default function IndividualPost() {
                                         <Link className="link" to={`/?user=${post.user?post.user._id:""}`}>
                                             { post.user?post.user.fullname:"" }
                                         </Link>
-                                    </b> | <button onClick={handleUpvote}>Upvote</button> | {post.votes?post.votes.length +" Votes":""}
+                                    </b> | {post.votes?post.votes.length +" Votes":""} {user?(<button onClick={handleUpvote}>Upvote</button>):""}
                                 </span>
                                 <span>{ new Date(post.createdAt).toDateString() }</span>
                             </div>
