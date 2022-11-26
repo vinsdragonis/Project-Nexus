@@ -73,6 +73,7 @@ function App() {
             list={list}
             loading={loading} />
           }/>
+          <Route exact path="/" element={ <Homepage /> } />
           <Route path="/about" element={ <About /> } />
           <Route path="/posts" element={ <Homepage /> } />
           <Route path="/post/:id" element={ <Individual /> } />
