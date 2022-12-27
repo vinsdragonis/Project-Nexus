@@ -17,7 +17,7 @@ export default function Register() {
         setError(false);
         
         try {
-            const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/auth/register", {
+            const res = await axios.post("http://localhost:5000/api/auth/register", {
                 fullname,
                 username,
                 email,

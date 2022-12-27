@@ -9,7 +9,7 @@ export default function Categories() {
     useEffect(() => {
         let isMounted = true; 
         const getCats = async () => {
-            const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/categories");
+            const res = await axios.get("http://localhost:5000/api/categories");
             if (isMounted) setCats(res.data);
         };
         

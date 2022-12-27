@@ -1,13 +1,11 @@
-import { useContext, useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
-import SearchPosts from "../searchbar/SearchPosts";
-import './topbar.css';    
+import './topbar.css';
 
-export default function Topbar({ setQuery}) {
+export default function Topbar() {
     const { user, dispatch } = useContext(Context);
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
-    const path = useLocation().pathname;
 
     const handleLogout = () => {
         setHamburgerOpen(false);
@@ -17,17 +15,6 @@ export default function Topbar({ setQuery}) {
     const handleHamburger = (e) => {
         setHamburgerOpen(current => !current)
     }
-
-    const [width, setWidth] = useState(window.innerWidth);
-    const breakpoint = 768;
-        
-    useEffect(() => {
-        const handleResizeWindow = () => setWidth(window.innerWidth);
-        window.addEventListener("resize", handleResizeWindow);
-        return () => {
-        window.removeEventListener("resize", handleResizeWindow);
-        };
-    }, []);
 
     return (
         <div className="top">
@@ -113,11 +100,6 @@ export default function Topbar({ setQuery}) {
                     <div></div>
                 </div>
             </div>
-            {
-                ["/"].includes(path) && width < breakpoint ? <div>
-                <SearchPosts setQuery={setQuery} />
-                </div> : <div></div>
-            }
         </div>
     )
 }

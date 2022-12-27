@@ -11,68 +11,20 @@ import {
   BrowserRouter as
   Router,
   Routes,
-  Route,
+  Route
 } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Context } from "./context/Context";
 import './app.css';
-import axios from 'axios';
 
 function App() {
   const { user } = useContext(Context);
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState("");
-  const [list, setList] = useState(true);
-  const keys = ["title", "desc"];
-
-  useEffect(() => {
-      setLoading(true);
-      const fetchPosts = async () => {
-          const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts", {mode: 'cors'});
-          setLoading(false);
-          setPosts(res.data);
-      };
-      
-      fetchPosts();
-  }, []);
-
-  const searchs = (posts) => {
-    // return posts.filter((item) =>
-    // keys.some(key => item[key].toLowerCase().includes(query.toLowerCase()))
-    // || item.categories.join("").toString().toLowerCase().includes(query.toLowerCase())
-    // );
-    return posts;
-  };
-  
-  const p = searchs(posts);
-
-  useEffect(() => {
-      if (p.length === 0) {
-          setList(false);
-      }
-      if (p.length) {
-          setList(true);
-      }
-  }, [p.length]);
-
 
   return (
     <div className="app">
       <Router>
-        <Topbar
-          p={p}
-          setQuery={setQuery}
-          list={list}
-          loading={loading}
-        />
+        <Topbar />
         <Routes>
-          <Route exact path="/" element={<Homepage
-            p={p}
-            setQuery={setQuery}
-            list={list}
-            loading={loading} />
-          }/>
           <Route exact path="/" element={ <Homepage /> } />
           <Route path="/about" element={ <About /> } />
           <Route path="/posts" element={ <Homepage /> } />

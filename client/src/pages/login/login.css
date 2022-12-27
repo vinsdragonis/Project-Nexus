@@ -33,6 +33,10 @@
     border-radius: 10px;
 }
 
+.loginInput:nth-of-type(2) {
+    -webkit-text-security: disc;
+}
+
 .loginInput:focus {
     outline: none;
 }

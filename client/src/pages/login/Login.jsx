@@ -11,19 +11,14 @@ export default function Login() {
     const { dispatch, isFetching } = useContext(Context);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(false);
-    const [passwordField, setPasswordField] = useState("password");
 
-    const handleShowPassword = (e) =>{
-        passwordField === "password" ? setPasswordField("text") : setPasswordField("password");
-    }
-
-    const handleSubmit = async (e) => { 
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError(false);
         dispatch({ type: "LOGIN_START" });
 
         try {
-            const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/auth/login", {
+            const res = await axios.post("http://localhost:5000/api/auth/login", {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             });
@@ -68,13 +63,12 @@ export default function Login() {
                             />
                             <label>Password</label>
                             <input
-                                type={passwordField}
+                                type="password"
                                 className="loginInput"
                                 placeholder="Enter password"
                                 required
                                 ref={ passwordRef }
                             />
-                            <span className="showPasswordToggle" onClick={handleShowPassword} style={{marginLeft:"auto", marginTop:"5px", cursor:"pointer"}}>{passwordField === "password" ? "Show Password" : "Hide Password"}</span>
                             <button className="loginButton" type="submit" disabled={ isFetching }>
                                 Login
                             </button>

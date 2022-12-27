@@ -1,18 +1,14 @@
-html {
-    width: 100%;
-}
-
 .app {
-  width: auto;
+    width: auto;
 }
 
 .loader {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
 }
 
 @media (max-width: 768px) {
