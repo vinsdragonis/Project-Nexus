@@ -24,15 +24,14 @@
 - [x] Loading screen
 - [x] About us page
 - [x] User profile page
-- [x] Responsive UI
 - [ ] Contact page
+- [ ] Responsive UI
 - [ ] Like, comment on blogs
 - [ ] Add images to posts from local storage
 - [ ] Change profile pic
 
 ### Status:
-- [x] Requirements elicitation
-- [x] System design
+- [x] System Software Requirements
 - [x] Development
 - [x] Deployment
 - [x] Testing

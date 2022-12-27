@@ -60,7 +60,7 @@ export default function Settings() {
         
 
         try {
-            const res = await axios.put(process.env.REACT_APP_BASE_URL+"/api/users/" + user._id, updatedUser);
+            const res = await axios.put("http://localhost:5000/api/users/" + user._id, updatedUser);
             setSuccess(true);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
         } catch (err) {
@@ -70,7 +70,7 @@ export default function Settings() {
 
     const handleDeleteAcc = async () => {
         try {
-        await axios.delete(process.env.REACT_APP_BASE_URL+`/api/users/${user._id}`, {
+        await axios.delete(`http://localhost:5000/api/users/${user._id}`, {
             data: { userId: user._id },
         });
             window.location.replace("/");

@@ -4,7 +4,6 @@ import './posts.css';
 
 export default function Posts({ posts }) {
     const [num, setNum] = useState(6)
-
     return (
         <div className='postsContainer'>
             <div className="posts">
