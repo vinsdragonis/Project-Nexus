@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: docker-react-container_name
+    image: docker-react-image
+    build:
+      context: .
+    ports:
+      - 8080:80
