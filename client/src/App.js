@@ -22,7 +22,7 @@ function App() {
 
   return (
     <div className="app">
-      <Router>
+      <Router basename="/">
         <Topbar />
         <Routes>
           <Route exact path="/" element={ <Homepage /> } />
