@@ -16,7 +16,6 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-mongoose.set("strictQuery", false);
 mongoose
     .connect(
         process.env.MONGO_URL,
