@@ -1,0 +1,17 @@
+version: '3.3'
+
+services:
+  app:
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - api
+  api:
+     build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
