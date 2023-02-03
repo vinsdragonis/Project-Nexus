@@ -113,7 +113,7 @@ export default function IndividualPost() {
                                     Author:
                                     <b className="indPostAuthor">
                                         <Link className="link" to={`/?user=${post.user?post.user.fullname:""}`}>
-                                            { post.user?post.user.fullname:"" }
+                                            { post.user?post.user.id:"" }
                                         </Link>
                                     </b> | {post.votes?post.votes.length +" Votes":""} {user?(<button onClick={handleUpvote}>Upvote</button>):""}
                                 </span>
