@@ -16,7 +16,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
     "web-vitals": "^3.3.0",
-    "webpack": "^5.76.1"
+    "webpack": "^5.76.2"
   },
   "scripts": {
     "start": "react-scripts start",
