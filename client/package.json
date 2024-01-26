@@ -15,7 +15,7 @@
     "react-router-dom": "^6.21.3",
     "react-scripts": "5.0.1",
     "react-spinners": "^0.13.8",
-    "web-vitals": "^3.5.1",
+    "web-vitals": "^3.5.2",
     "webpack": "^5.90.0"
   },
   "scripts": {
