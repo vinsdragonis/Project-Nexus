@@ -3,6 +3,8 @@ import { useContext, useRef, useState, useEffect } from "react";
 // import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import SyncLoader from "react-spinners/SyncLoader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './login.css';
 
 export default function Login() {
@@ -10,7 +12,6 @@ export default function Login() {
     const passwordRef = useRef();
     const { dispatch, isFetching } = useContext(Context);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
     const [passwordField, setPasswordField] = useState("password");
 
     const handleShowPassword = (e) =>{
@@ -19,7 +20,6 @@ export default function Login() {
 
     const handleSubmit = async (e) => { 
         e.preventDefault();
-        setError(false);
         dispatch({ type: "LOGIN_START" });
 
         try {
@@ -27,10 +27,20 @@ export default function Login() {
                 username: userRef.current.value,
                 password: passwordRef.current.value,
             });
+            toast.success("Login successful!", {
+                autoClose: 3000, 
+                position: "top-center",
+            });
+            setTimeout(() => {
+                dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+            }, 1000);
             
-            dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         } catch (err) {
-            setError(true);
+            
+            toast.error("Login failed! Please try again.", {
+                autoClose: 3000,
+                position: "top-center",
+            });
             dispatch({ type: "LOGIN_FAILURE" });
         }
     };
@@ -44,6 +54,7 @@ export default function Login() {
 
     return (
         <>
+            <ToastContainer />
             { loading ?
                 (
                     <div className="loader">  
@@ -80,10 +91,7 @@ export default function Login() {
                             </button>
                         </form>
                         
-                        {
-                            error &&
-                            <span style={{ color:"red", marginTop:"10px" }}>Something went wrong!</span>
-                        }
+                        
                     </div>
                 )
             }
