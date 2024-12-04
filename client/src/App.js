@@ -64,14 +64,15 @@ function App() {
           p={p}
           setQuery={setQuery}
           list={list}
-          loading={loading}
+          loading = {loading}
         />
         <Routes>
           <Route exact path="/" element={<Homepage
             p={p}
             setQuery={setQuery}
             list={list}
-            loading={loading} />
+            loading={loading}
+             />
           }/>
           <Route exact path="/" element={ <Homepage /> } />
           <Route path="/about" element={ <About /> } />

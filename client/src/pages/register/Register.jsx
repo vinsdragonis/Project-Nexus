@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { Link } from 'react-router-dom';
 import SyncLoader from "react-spinners/SyncLoader";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './register.css';
 
 export default function Register() {
@@ -10,11 +11,12 @@ export default function Register() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [error, setError] = useState(false);
+ 
 
+  
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setError(false);
+
         
         try {
             const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/auth/register", {
@@ -23,9 +25,27 @@ export default function Register() {
                 email,
                 password,
             });
-            res.data && window.location.replace("/login");
+            console.log(res.data)
+            
+                toast.success("Registration successful!", {
+                  autoClose: 3000, 
+                  position: "top-center"
+                });
+              
+                setTimeout(() => {
+                  window.location.replace("/login");
+                }, 3000); 
+            
+            console.log(res)
         } catch (err) {
-            setError(true);
+            console.log(err)
+            toast.error("Registration failed! Please try again.", {
+                autoClose: 3000,
+                position: "top-center"
+            });
+            setTimeout(() => {
+                window.location.replace("/");
+              }, 3000); 
         }
     };
 
@@ -38,6 +58,7 @@ export default function Register() {
 
     return (
         <>
+            <ToastContainer />
             { loading ? 
                 (
                     <div className="loader">  
@@ -85,16 +106,13 @@ export default function Register() {
                                 onChange={ (e) => setPassword(e.target.value) }
                             />
                             <button className="registerButton" type="submit">
-                                <Link className="link" to="/">
+                                {/* <Link className="link" to="/"> */}
                                     Register
-                                </Link>
+                                {/* </Link> */}
                             </button>
                         </form>
                         
-                        {
-                            error &&
-                            <span style={{ color:"red", marginTop:"10px" }}>Something went wrong!</span>
-                        }
+                        
                     </div>
                 )
             }
