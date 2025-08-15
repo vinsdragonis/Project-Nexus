@@ -1,28 +1,29 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^3.0.0",
-    "bower": "^1.8.13",
-    "bower-json": "^0.8.4",
-    "cors": "^2.8.5",
-    "dotenv": "^17.0.0",
-    "express": "^5.0.0",
-    "mongoose": "^8.0.0",
-    "nodemon": "^3.0.1",
-    "path": "^0.12.7"
-  },
-  "engines": {
-    "node": "16.x",
-    "npm": "8.x"
-  }
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "nodemon index.js",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build": "npm install"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^3.0.0",
+        "bower": "^1.8.13",
+        "bower-json": "^0.8.4",
+        "cors": "^2.8.5",
+        "dotenv": "^17.0.0",
+        "express": "^5.0.0",
+        "mongoose": "^8.0.0",
+        "nodemailer": "^6.9.8",
+        "nodemon": "^3.0.1",
+        "path": "^0.12.7"
+    },
+    "engines": {
+        "node": "16.x",
+        "npm": "8.x"
+    }
 }
