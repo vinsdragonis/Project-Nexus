@@ -1,0 +1,35 @@
+.reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+.resetTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+.resetForm {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    gap: 10px;
+}
+.resetInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.resetButton {
+    margin-top: 10px;
+    border: none;
+    background: #ffa000;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.resetButton:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

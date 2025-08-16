@@ -20,6 +20,16 @@ const UserSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
+        // Password reset (hashed token + expiration)
+        resetPasswordToken: {
+            type: String,
+            default: null,
+            index: true,
+        },
+        resetPasswordExpires: {
+            type: Date,
+            default: null,
+        },
         profilePic: {
             type: String,
             default: "https://cdn-icons-png.flaticon.com/512/924/924874.png",
@@ -30,8 +40,8 @@ const UserSchema = new mongoose.Schema(
         },
     },
     {
-        timestamps: true
+        timestamps: true,
     }
 );
 
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);
