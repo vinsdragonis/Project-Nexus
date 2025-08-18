@@ -93,7 +93,8 @@ export default function Topbar({ setQuery}) {
                             <img
                                 className="topImg"
                                 src={user.profilePic}
-                                alt=""
+                                alt={user.username}
+                                title={`View your profile`}
                             />
                         </Link>
                     ) : (

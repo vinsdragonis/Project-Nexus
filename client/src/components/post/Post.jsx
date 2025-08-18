@@ -25,7 +25,12 @@ export default function Post({ post }) {
                 </Link>
             </span>
             <hr />
-            <span className="postDate">{ new Date(post.createdAt).toDateString() }</span>
+            <div className="postMeta">
+                <span className="postDate">{ new Date(post.createdAt).toDateString() }</span>
+                <span className="postAuthor">
+                    by <Link className="link" to={`/profile/${post.username}`}>{ post.username }</Link>
+                </span>
+            </div>
             <p className="postDesc">
                 { post.desc }
             </p>

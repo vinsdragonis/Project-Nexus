@@ -28,7 +28,7 @@ export default function Sidebar() {
                         <li>
                             <p className="userDetails">
                                 <strong>Username: </strong> 
-                                <Link className="link" to={`/?user=${user.username}`}>
+                                <Link className="link" to="/profile">
                                     <span>
                                         { user.username }
                                     </span>

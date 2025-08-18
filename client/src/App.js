@@ -2,6 +2,7 @@ import Homepage from "./pages/homepage/Homepage";
 import About from "./pages/about/About";
 import Individual from "./pages/individual/Individual";
 import Profile from "./pages/profile/Profile";
+import UserProfile from "./pages/userProfile/UserProfile";
 import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
@@ -82,7 +83,8 @@ function App() {
                     <Route path="/about" element={<About />} />
                     <Route path="/posts" element={<Homepage />} />
                     <Route path="/post/:id" element={<Individual />} />
-                    <Route path="/profile" element={<Profile />} />
+                    <Route path="/profile" element={user ? <Profile /> : <Login />} />
+                    <Route path="/profile/:username" element={<UserProfile />} />
                     <Route
                         path="/write"
                         element={user ? <Write /> : <Login />}
