@@ -1,0 +1,165 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.prof-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-bottom: 30px;
+}
+
+.prof-hero {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.prof-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prof-section {
+  padding: 20px;
+  position: relative;
+}
+
+.prof-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid white;
+  overflow: hidden;
+  position: absolute;
+  top: -60px;
+  left: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.prof-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prof-detail-main {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+.prof-detail-main h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+.prof-username {
+  margin: 5px 0;
+  font-size: 16px;
+  color: #666;
+  font-weight: 400;
+}
+
+.prof-bio {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.prof-detail-sub {
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+}
+
+.prof-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.prof-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.prof-meta h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+  color: #666;
+}
+
+.prof-meta-title {
+  font-weight: 600;
+  color: #333;
+}
+
+.prof-meta-value {
+  font-weight: 400;
+  color: #666;
+}
+
+.prof-feat-container {
+  width: 100%;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.prof-posts {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+
+.prof-posts h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.user-not-found {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.user-not-found h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.user-not-found p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.no-posts-message {
+  text-align: center;
+  padding: 20px;
+  color: #666;
+  font-style: italic;
+}

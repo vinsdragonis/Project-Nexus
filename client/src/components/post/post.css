@@ -45,13 +45,33 @@
     align-items: center;
 }
 
+.postMeta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
 .postDate {
-    font-family: "Lora", serif;
+    font-family: "Varela Round", sans-serif;
     font-style: italic;
     font-size: 13px;
-    font-weight: 400;
-    color: #999999;
-    margin-top: 15px;
+    color: #999;
+}
+
+.postAuthor {
+    font-family: "Varela Round", sans-serif;
+    font-size: 13px;
+    color: #666;
+}
+
+.postAuthor a {
+    color: #ffa000;
+    text-decoration: none;
+}
+
+.postAuthor a:hover {
+    text-decoration: underline;
 }
 
 .postDesc {
