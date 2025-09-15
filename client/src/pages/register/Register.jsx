@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import SyncLoader from "react-spinners/SyncLoader";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,6 +12,7 @@ export default function Register() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
  
 
   
@@ -33,7 +35,7 @@ export default function Register() {
                 });
               
                 setTimeout(() => {
-                  window.location.replace("/login");
+                  navigate("/"); // Redirect to homepage after successful registration
                 }, 3000); 
             
             console.log(res)
@@ -44,7 +46,7 @@ export default function Register() {
                 position: "top-center"
             });
             setTimeout(() => {
-                window.location.replace("/");
+                navigate("/"); // Redirect to homepage even on error
               }, 3000); 
         }
     };
