@@ -17,16 +17,10 @@ app.use(cors());
 
 mongoose.set('strictQuery', false);
 mongoose
-    .connect(
-        process.env.MONGO_URL,
-        {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        }
-    )
-    .then(
+    .connect(process.env.MONGO_URL)
+    .then(() => {
         console.log("Connected to MongoDB")
-    )
+    })
     .catch((err) => {
         console.log(err + "\nError brrr :(")
     });

@@ -10,7 +10,7 @@ import Register from "./pages/register/Register";
 import ForgotPassword from "./pages/forgot/ForgotPassword";
 import ResetPassword from "./pages/reset/ResetPassword";
 import Topbar from "./components/topbar/Topbar";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { Context } from "./context/Context";
 import "./app.css";
@@ -79,7 +79,7 @@ function App() {
                             />
                         }
                     />
-                    <Route exact path="/" element={<Homepage />} />
+                    {/* Removed duplicate home route */}
                     <Route path="/about" element={<About />} />
                     <Route path="/posts" element={<Homepage />} />
                     <Route path="/post/:id" element={<Individual />} />
@@ -95,11 +95,11 @@ function App() {
                     />
                     <Route
                         path="/login"
-                        element={user ? <Homepage /> : <Login />}
+                        element={user ? <Navigate to="/" replace /> : <Login />}
                     />
                     <Route
                         path="/register"
-                        element={user ? <Homepage /> : <Register />}
+                        element={user ? <Navigate to="/" replace /> : <Register />}
                     />
                     <Route
                         path="/forgot-password"

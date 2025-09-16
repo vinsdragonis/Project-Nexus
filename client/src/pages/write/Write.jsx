@@ -1,4 +1,5 @@
 import { useContext, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./write.css";
 import axios from "axios";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -12,11 +13,12 @@ export default function Write() {
     const [categories, setCategories] = useState([]);
     const [photo, setPhoto] = useState("");
     const { user } = useContext(Context);
+    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         const newPost = {
-            user: user._id,
+            username: user.username,
             photo,
             title,
             categories,
@@ -35,9 +37,13 @@ export default function Write() {
         // }
 
         try {
+            console.log("Sending post data:", newPost); // Debug log
             const res = await axios.post(process.env.REACT_APP_BASE_URL+"/api/posts", newPost);
-            window.location.replace("/post/" + res.data._id);
-        } catch (err) {}
+            console.log("Post created successfully:", res.data); // Debug log
+            navigate("/post/" + res.data._id); // Use navigate instead of window.location.replace
+        } catch (err) {
+            console.error("Error creating post:", err.response?.data || err.message);
+        }
     };
 
     useEffect(() => {

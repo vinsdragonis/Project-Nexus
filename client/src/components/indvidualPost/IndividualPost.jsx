@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
 import SyncLoader from "react-spinners/SyncLoader";
@@ -15,6 +15,7 @@ export default function IndividualPost() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [updateMode, setUpdateMode] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setLoading(true);
@@ -46,7 +47,7 @@ export default function IndividualPost() {
         await axios.delete(process.env.REACT_APP_BASE_URL+`/api/posts/${post._id}`, {
             data: { username: user.username },
         });
-        window.location.replace("/");
+        navigate("/"); // Use navigate instead of window.location.replace
         } catch (err) {}
     };
 

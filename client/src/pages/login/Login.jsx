@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useContext, useRef, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
 import SyncLoader from "react-spinners/SyncLoader";
 import { ToastContainer, toast } from "react-toastify";
@@ -13,6 +13,7 @@ export default function Login() {
     const { dispatch, isFetching } = useContext(Context);
     const [loading, setLoading] = useState(false);
     const [passwordField, setPasswordField] = useState("password");
+    const navigate = useNavigate();
 
     const handleShowPassword = (e) => {
         passwordField === "password"
@@ -38,6 +39,7 @@ export default function Login() {
             });
             setTimeout(() => {
                 dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
+                navigate("/"); // Redirect to homepage after successful login
             }, 1000);
         } catch (err) {
             toast.error("Login failed! Please try again.", {
