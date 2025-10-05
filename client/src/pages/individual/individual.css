@@ -1,3 +1,50 @@
 .individual {
+    /* Main wrapper to hold all content columns (Categories, Post/Comments, Sidebar) */
     display: flex;
+    justify-content: center;
+    max-width: 1200px; /* Limits the overall width */
+    margin: 30px auto; /* Centers the container horizontally */
+    padding: 0 20px;
+}
+
+.individual-main-content {
+    /* The large column for the post, categories, and comments */
+    flex: 9; 
+    padding-right: 30px; /* Creates spacing from the sidebar */
+    min-width: 0; 
+}
+
+.individual-sidebar-area {
+    /* Ensures the sidebar is treated as its own column */
+    flex: 3;
+    max-width: 300px; 
+    margin-left: 20px;
+}
+
+/* ---------------------------------- */
+/* RESPONSIVENESS FIXES (CRITICAL) */
+/* ---------------------------------- */
+
+@media (max-width: 1024px) {
+    .individual {
+        flex-direction: column; /* Stacks columns vertically on smaller screens */
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .individual-main-content {
+        padding-right: 0;
+        margin-bottom: 30px;
+        flex: auto;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .individual-sidebar-area {
+        flex: auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+        margin: 0;
+    }
 }
