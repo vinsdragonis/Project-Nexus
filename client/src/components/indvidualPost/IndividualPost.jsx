@@ -1,3 +1,5 @@
+// client/src/components/individualPost/IndividualPost.jsx (MODIFIED)
+
 import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router";
@@ -6,7 +8,8 @@ import { Context } from "../../context/Context";
 import SyncLoader from "react-spinners/SyncLoader";
 import './individualPost.css';
 
-export default function IndividualPost() {
+// 🚨 1. ACCEPT THE CALLBACK PROP
+export default function IndividualPost({ onPostLoaded }) { 
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const { user } = useContext(Context);
@@ -19,14 +22,26 @@ export default function IndividualPost() {
     useEffect(() => {
         setLoading(true);
         const getPost = async () => {
-            const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts/" + path);
-            setPost(res.data);
-            setLoading(false);
-            setTitle(res.data.title);
-            setDesc(res.data.desc);
+            try {
+                const res = await axios.get(process.env.REACT_APP_BASE_URL+"/api/posts/" + path);
+                
+                // 🚨 2. CALL THE CALLBACK PROP WITH THE POST DATA
+                if (onPostLoaded) {
+                    onPostLoaded(res.data);
+                }
+                
+                setPost(res.data);
+                setLoading(false);
+                setTitle(res.data.title);
+                setDesc(res.data.desc);
+            } catch (error) {
+                console.error("Error fetching post:", error);
+                setLoading(false);
+            }
         };
+        // 🚨 3. Add onPostLoaded to dependency array if using React 18 strict mode
         getPost();
-    }, [path]);
+    }, [path, onPostLoaded]); 
 
     const handleUpvote = async () => {
         const newVote = {
@@ -65,7 +80,7 @@ export default function IndividualPost() {
         <>
             { loading ? 
                 (
-                    <div className="loader">  
+                    <div className="loader">  
                         <SyncLoader
                             color={"#ffa000"}
                             loading={loading}
@@ -74,9 +89,9 @@ export default function IndividualPost() {
                         />
                     </div>
                 ) : (
-                    <div>        
+                    <div>        
                         <div className="indPostWrapper">
-                            { post.photo &&    
+                            { post.photo &&    
                                 <img
                                     className="indPostImg"
                                     src={ post.photo }

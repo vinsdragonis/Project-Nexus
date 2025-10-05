@@ -1,0 +1,121 @@
+/* client/src/components/comments/comments.css */
+
+/* --- Comment Input --- */
+.commentInput {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.commentInput.reply-box {
+    margin-top: 10px;
+    margin-left: 20px; /* Indent replies */
+    background-color: #fff;
+    border: 1px dashed #ccc;
+    padding: 10px;
+}
+
+.commentInput textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    resize: vertical;
+}
+
+.commentInput button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+/* --- Comments List --- */
+.commentsList-container {
+    margin-top: 30px;
+}
+
+.commentsList-header {
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+/* --- Comment Item --- */
+.commentItem-container {
+    margin-bottom: 15px;
+    padding-left: 0;
+    position: relative;
+}
+
+.commentItem {
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.commentItem.is-reply {
+    margin-left: 20px;
+    border-left: 3px solid #ccc;
+    padding-left: 15px;
+    background-color: #fafafa;
+}
+
+.commentItem-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.commentItem-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+
+.commentItem-meta {
+    display: flex;
+    flex-direction: column;
+}
+
+.commentItem-username {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.commentItem-date {
+    font-size: 0.75em;
+    color: #888;
+}
+
+.commentItem-content {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.commentItem-actions button {
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: #007bff;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.commentItem-replies {
+    margin-top: 10px;
+    border-top: 1px dashed #eee;
+    padding-top: 10px;
+}

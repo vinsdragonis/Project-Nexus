@@ -6,6 +6,7 @@ const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
 const postRoute = require("./routes/posts");
 const categoryRoute = require("./routes/categories");
+const commentRoute = require("./routes/comments");
 const cors = require("cors");
 const path = require("path");
 
@@ -35,6 +36,7 @@ app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
 app.use("/api/posts", postRoute);
 app.use("/api/categories", categoryRoute);
+app.use("/api/comments", commentRoute);
 
 app.listen(port, () => {
   console.log(`Backend server is running on ${port}`);
