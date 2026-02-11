@@ -31,9 +31,14 @@
 - [ ] Change profile pic
 
 ### Status:
+
 - [x] Requirements elicitation
 - [x] System design
 - [x] Development
 - [x] Deployment
 - [x] Testing
 - [x] Completed
+
+## Overview
+
+Project Nexus is a full-stack blogging platform built with React.js, Node.js, Express.js, and MongoDB. It allows users to sign up, create and manage blog posts with images, browse other users' content, and view profile information through a clean, responsive interface. The project is intended as a learning-friendly starter blog that you can extend with additional features.
