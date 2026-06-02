@@ -10,7 +10,7 @@
     "dotenv": "^17.4.2",
     "http-proxy-middleware": "^4.0.0",
     "jshint": "^2.13.6",
-    "react": "^19.2.6",
+    "react": "^19.2.7",
     "react-dom": "^19.2.6",
     "react-router-dom": "^7.16.0",
     "react-scripts": "5.0.1",
