@@ -16,7 +16,7 @@
     "react-scripts": "5.0.1",
     "react-spinners": "^0.17.0",
     "react-toastify": "^11.1.0",
-    "web-vitals": "^6.0.1",
+    "web-vitals": "^6.1.0",
     "webpack": "^5.109.2"
   },
   "scripts": {
