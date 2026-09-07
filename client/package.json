@@ -5,7 +5,7 @@
   "dependencies": {
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
-    "@testing-library/user-event": "^14.6.6",
+    "@testing-library/user-event": "^14.6.7",
     "axios": "^1.20.0",
     "dotenv": "^17.4.2",
     "http-proxy-middleware": "^4.2.0",
